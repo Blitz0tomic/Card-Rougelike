@@ -1075,7 +1075,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   walkSpeed: 10
-  rotateSpeed: 100
+  rotateSpeed: 50
   Maxspeed: 10
   maxSpeed: {x: 0, y: 0, z: 0}
   attackBox: {fileID: 1585027623}
