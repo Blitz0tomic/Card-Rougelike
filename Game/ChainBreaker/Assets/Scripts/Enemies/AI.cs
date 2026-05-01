@@ -114,7 +114,7 @@ public class AI : MonoBehaviour
 
     private IEnumerator AttackDelay()
     {
-        yield return new WaitForSecondsRealtime(3f);
+        yield return new WaitForSecondsRealtime(1.5f);
         attackReady = true;
     }
 
