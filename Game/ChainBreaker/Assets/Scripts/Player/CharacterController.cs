@@ -44,6 +44,8 @@ public class CharacterController : MonoBehaviour
     public GameObject attackBox;
 
     public ArmorChecker armorChecker;
+
+    bool attackReady = true;
     #endregion
     private void Awake()
     {
@@ -71,7 +73,7 @@ public class CharacterController : MonoBehaviour
             IFrame(invincTime);
         }
         
-        if (attackAction.WasPerformedThisFrame()) 
+        if (attackAction.WasPerformedThisFrame() && attackReady) 
         {
             StartCoroutine(Attack());
             Debug.Log("Attack"); 
@@ -135,9 +137,18 @@ public class CharacterController : MonoBehaviour
     #endregion
     private IEnumerator Attack()
     {
+
         attackBox.SetActive(true);
         yield return new WaitForSeconds(0.1f);
         attackBox.SetActive(false);
+        attackReady = false;
+        StartCoroutine(AttackDelay());
+    }
+
+    private IEnumerator AttackDelay()
+    {
+        yield return new WaitForSecondsRealtime(.15f);
+        attackReady = true;
     }
     public void TakeDamage(int incomingDamage) 
     {

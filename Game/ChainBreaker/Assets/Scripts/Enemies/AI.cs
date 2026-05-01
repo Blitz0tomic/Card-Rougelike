@@ -19,7 +19,7 @@ public class AI : MonoBehaviour
     public bool patrolling = true;
 
     public float DistanceToPlayer;
-
+    public bool attackReady = true;
     public GameObject attackBox;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -46,7 +46,7 @@ public class AI : MonoBehaviour
             Chase();
             patrolling = false;
         }
-        if (DistanceToPlayer < attackDistance)
+        if (DistanceToPlayer < attackDistance && attackReady)
         {
             agent.isStopped = true;
             agent.gameObject.transform.LookAt(player.gameObject.transform);
@@ -108,7 +108,14 @@ public class AI : MonoBehaviour
         attackBox.SetActive(true);
         yield return new WaitForSeconds(0.1f);
         attackBox.SetActive(false);
-        
+        attackReady = false;
+        StartCoroutine(AttackDelay());
+    }
+
+    private IEnumerator AttackDelay()
+    {
+        yield return new WaitForSecondsRealtime(3f);
+        attackReady = true;
     }
 
 }
