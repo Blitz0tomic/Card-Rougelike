@@ -149,6 +149,10 @@ public class CharacterController : MonoBehaviour
                 health -= (incomingDamage);
             }
         }
+        if (health <= 0)
+        {
+            Die();
+        }
     }
     private void Walking()
     {
@@ -202,5 +206,10 @@ public class CharacterController : MonoBehaviour
     public void UpdateArmor()
     {
         armor = armorChecker.ArmorData.armor;
+    }
+    private void Die()
+    {
+        Debug.Log("Player died");
+        Destroy(gameObject);
     }
 }

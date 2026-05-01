@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -14,9 +15,12 @@ public class AI : MonoBehaviour
     public bool chasing = false;
     public GameObject player;
     public float chaseDistance = 5f;
-    public bool patroling;
+    public float attackDistance = 5f;
+    public bool patrolling = true;
 
     public float DistanceToPlayer;
+
+    public GameObject attackBox;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,19 +32,31 @@ public class AI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         agent.stoppingDistance = desiredDistance;
 
        DistanceToPlayer = Vector3.Distance(agent.gameObject.transform.position, player.transform.position);
 
-        if ((DistanceToPlayer) < chaseDistance)
+        if (DistanceToPlayer < chaseDistance)
         {
             chasing = true;
         }
         if (chasing)
         {
             Chase();
+            patrolling = false;
         }
-        if (patroling)
+        if (DistanceToPlayer < attackDistance)
+        {
+            agent.isStopped = true;
+            agent.gameObject.transform.LookAt(player.gameObject.transform);
+            StartCoroutine(Attack());
+        }
+        if (DistanceToPlayer > attackDistance && !patrolling)
+        {
+            agent.isStopped = false;
+        }
+        if (patrolling)
         {
             if (agent.remainingDistance <= agent.stoppingDistance)
             {
@@ -82,8 +98,17 @@ public class AI : MonoBehaviour
         {
             chasing = false;
             agent.destination = point;
+            patrolling = true;
         }
     }
 
+    private IEnumerator Attack()
+    {
+        
+        attackBox.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        attackBox.SetActive(false);
+        
+    }
 
 }

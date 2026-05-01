@@ -17,10 +17,20 @@ public class AttackBox : MonoBehaviour
             {
                 if (!damaged_Enemies.Contains(other.name))
                 {
-                    var target1 = target.GetComponent<EnemyHealth>();
-                    target1.TakeDamage(damage);
-                    damaged_Enemies.Add(other.name);
-                    Debug.Log($"Hit {other.name} for {damage} damage.");
+                    if (other.name == "Player")
+                    {
+                        var target1 = target.GetComponent<CharacterController>();
+                        target1.TakeDamage(damage);
+                        damaged_Enemies.Add(other.name);
+                        Debug.Log($"Hit {other.name} for {damage} damage.");
+                    }
+                    else
+                    {
+                        var target1 = target.GetComponent<EnemyHealth>();
+                        target1.TakeDamage(damage);
+                        damaged_Enemies.Add(other.name);
+                        Debug.Log($"Hit {other.name} for {damage} damage.");
+                    }
                 }
             }
         }
