@@ -757,6 +757,11 @@ MonoBehaviour:
   waypoints: []
   waypointNumber: 0
   desiredDistance: 0.5
+  chasing: 0
+  player: {fileID: 1594140711}
+  chaseDistance: 5
+  patroling: 1
+  DistanceToPlayer: 0
 --- !u!1 &798836515
 GameObject:
   m_ObjectHideFlags: 0
