@@ -5,7 +5,7 @@ using UnityEngine.AI;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemy;
-
+    waypoints = new List<Vector3>();
     bool spawnable = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -27,6 +27,7 @@ public class EnemySpawner : MonoBehaviour
     {
         spawnable = false;
         GameObject clone = Instantiate(enemy);
+clone GetComponent<AI>.waypoints = GameObject.FindGameObjectsWithTag("WaypointParent");
         yield return new WaitForSecondsRealtime(1.5f);
         spawnable = true;
     }
