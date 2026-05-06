@@ -33,6 +33,11 @@ public class AI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player == null)
+        {
+            patrolling = true;
+            chasing = false;
+        }
         
         agent.stoppingDistance = desiredDistance;
 
