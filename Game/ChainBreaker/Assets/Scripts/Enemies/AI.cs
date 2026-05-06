@@ -25,6 +25,7 @@ public class AI : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        player = GameObject.FindWithTag("Player");
         GetWaypoints();
         SetDestination();
     }
@@ -104,7 +105,6 @@ public class AI : MonoBehaviour
 
     private IEnumerator Attack()
     {
-        
         attackBox.SetActive(true);
         yield return new WaitForSeconds(0.1f);
         attackBox.SetActive(false);

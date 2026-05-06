@@ -119,6 +119,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &131448709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 131448711}
+  - component: {fileID: 131448710}
+  m_Layer: 0
+  m_Name: Enemy Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &131448710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131448709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc39c1ac27bb5d4d98a782961690f07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
+  enemy: {fileID: 8360366163495781922, guid: da291b8002fe4aa4a9e45a89872e0aaf, type: 3}
+--- !u!4 &131448711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131448709}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.24, y: 0.8, z: 7.82}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &206433947
 GameObject:
   m_ObjectHideFlags: 0
@@ -1105,6 +1150,10 @@ PrefabInstance:
       propertyPath: Waypoint
       value: 
       objectReference: {fileID: 798836515}
+    - target: {fileID: 6848086139878931595, guid: da291b8002fe4aa4a9e45a89872e0aaf, type: 3}
+      propertyPath: attackDistance
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8360366163495781922, guid: da291b8002fe4aa4a9e45a89872e0aaf, type: 3}
       propertyPath: m_Name
       value: Enemy 1
@@ -1124,3 +1173,4 @@ SceneRoots:
   - {fileID: 3812269598131717531}
   - {fileID: 206433953}
   - {fileID: 798836516}
+  - {fileID: 131448711}
