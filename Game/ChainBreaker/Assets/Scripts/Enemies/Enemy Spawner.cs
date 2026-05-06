@@ -5,18 +5,20 @@ using UnityEngine.AI;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemy;
-    waypoints = new List<Vector3>();
-    bool spawnable = true;
+    public GameObject waypoints;
+    bool spawnable = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         enemy.transform.position = new Vector3(0.65f,2.01f,12.39f);
+        StartCoroutine(Wait());
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if (spawnable)
         {
             StartCoroutine(Spawn());
@@ -27,8 +29,15 @@ public class EnemySpawner : MonoBehaviour
     {
         spawnable = false;
         GameObject clone = Instantiate(enemy);
-clone GetComponent<AI>.waypoints = GameObject.FindGameObjectsWithTag("WaypointParent");
-        yield return new WaitForSecondsRealtime(1.5f);
+        waypoints = GameObject.FindGameObjectWithTag("WaypointParent");
+        clone.GetComponent<AI>().Waypoint = waypoints;
+        yield return new WaitForSecondsRealtime(10f);
+        spawnable = true;
+    }
+
+    private IEnumerator Wait()
+    {
+        yield return new WaitForSecondsRealtime(10f);
         spawnable = true;
     }
 }
