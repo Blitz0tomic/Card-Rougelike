@@ -1,17 +1,20 @@
-using System.Threading.Tasks;
-using System.Collections;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public static class Program
+public class GambleOriginal : MonoBehaviour
 {
-
-    public static void Main()
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
     {
-        Blackjack game = new Blackjack();
-        game.Deal();
+        
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }
 
 public class Blackjack
@@ -36,7 +39,7 @@ public class Blackjack
 
         Console.WriteLine(" your hand is");
 
-        Random random = new Random();
+        System.Random random = new System.Random();
         int card1 = random.Next(0, deck.Length);
 
         Console.WriteLine(deck[card1]);
@@ -70,3 +73,4 @@ public class Blackjack
 
 
 }
+
