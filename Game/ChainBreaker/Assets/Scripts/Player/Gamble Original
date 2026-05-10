@@ -1,0 +1,72 @@
+using System.Threading.Tasks;
+using System.Collections;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public static class Program
+{
+
+    public static void Main()
+    {
+        Blackjack game = new Blackjack();
+        game.Deal();
+    }
+
+}
+
+public class Blackjack
+{
+    string betInput;
+    int bet;
+    private string[] deck;
+    public string[] hand;
+
+    public void Bet()
+    {
+        betInput = Console.ReadLine();
+        if (betInput == "") { betInput = "5"; }
+        bet = int.Parse(betInput);
+    }
+
+    public void Deal()
+    {
+        Bet();
+        deck = BuildDeck();
+        Console.WriteLine("you bet $" + bet);
+
+        Console.WriteLine(" your hand is");
+
+        Random random = new Random();
+        int card1 = random.Next(0, deck.Length);
+
+        Console.WriteLine(deck[card1]);
+
+        int card2 = random.Next(0, deck.Length);
+
+        Console.WriteLine(deck[card2]);
+    }
+
+    private string[] BuildDeck()
+    {
+        string[] ranks = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
+        string[] suits = { "Hearts", "Diamonds", "Clubs", "Spades" };
+
+        List<string> deck = new List<string>();
+
+        foreach (string suit in suits)
+        {
+            foreach (string rank in ranks)
+            {
+                deck.Add($"{rank} {suit}");
+            }
+        }
+
+        return deck.ToArray();
+    }
+
+
+
+
+
+
+}
