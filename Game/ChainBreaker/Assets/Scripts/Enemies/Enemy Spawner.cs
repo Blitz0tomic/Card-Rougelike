@@ -11,7 +11,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        enemy.transform.position = new Vector3(0.65f,2.01f,12.39f);
+        enemy.transform.position = gameObject.transform.position;
         StartCoroutine(Wait());
     }
 
