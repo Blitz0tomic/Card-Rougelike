@@ -884,11 +884,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputActions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  controller: {fileID: 1594140721}
   health: 100
   armor: 5
   invincTime: 0.5
   sprinting: 0
-  rb: {fileID: 0}
+  rb: {fileID: 1594140713}
   jumpForce: 5
   ground:
     serializedVersion: 2
@@ -1077,9 +1078,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 273cf39e7479efc4abc12484a0e2fd7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeckController
-  deck: []
-  hand: []
+  BaseDeck:
+  - {fileID: 11400000, guid: 64fab7688fc6f11468041aa72053970b, type: 2}
+  - {fileID: 11400000, guid: d19732acc47717a43805c99f868a87c4, type: 2}
+  - {fileID: 11400000, guid: f425cd6daf9a7814e9acee722267d78e, type: 2}
+  Deck: []
+  Hand: []
   HandSize: 2
+  DiscardPile: []
 --- !u!1 &1657395052
 GameObject:
   m_ObjectHideFlags: 0

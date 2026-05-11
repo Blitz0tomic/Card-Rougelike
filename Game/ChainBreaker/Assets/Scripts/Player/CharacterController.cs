@@ -16,8 +16,10 @@ public class CharacterController : MonoBehaviour
     private InputAction attackAction;
     private InputAction interactAction;
     private InputAction sprintAction;
+    private InputAction DrawAction;
     #endregion
 
+    public DeckController controller;
     public int health;
     public int armor;
 
@@ -56,6 +58,7 @@ public class CharacterController : MonoBehaviour
         attackAction = InputSystem.actions.FindAction("Attack");
         interactAction = InputSystem.actions.FindAction("Interact");
         sprintAction = InputSystem.actions.FindAction("Sprint");
+        DrawAction = InputSystem.actions.FindAction("Draw");
         rb = GetComponent<Rigidbody>();
         rb.linearDamping = 0.5f;
         maxSpeed = new Vector3(Maxspeed, 0, Maxspeed);
@@ -110,6 +113,12 @@ public class CharacterController : MonoBehaviour
         {
             Jump();
             Debug.Log("Jumping");
+        }
+
+        if (DrawAction.WasPerformedThisFrame()) 
+        {
+            controller.DiscardHand();
+            controller.Draw(2);
         }
     }
     private void FixedUpdate()
