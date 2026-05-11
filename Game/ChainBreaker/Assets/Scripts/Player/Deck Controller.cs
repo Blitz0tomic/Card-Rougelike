@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class DeckController : MonoBehaviour
 {
-    public string[] deck;
-    public string[] hand;
+    public List<Card> deck;
+    public List<Card> hand;
+    public List<Card> discardPile;
     public int HandSize = 2;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -13,11 +14,11 @@ public class DeckController : MonoBehaviour
         deck = BuildDeck();
         ShuffleDeck();
         Debug.Log("Deck has " + deck.Length + " cards.");
-        Deal(HandSize);  
+        DrawHand(HandSize);  
     }
 
     
-    public void Deal(int HandSize) { 
+    public void DrawHand(int HandSize) { 
         
         hand = new string[HandSize];
 
@@ -67,4 +68,13 @@ public class DeckController : MonoBehaviour
     }
 }
 
-
+public class Card
+{
+    public string Name;
+    public string Rarity;
+   public Card(string name, string rarity)
+    {
+        Name = name;
+        Rarity = rarity;
+    }
+}
