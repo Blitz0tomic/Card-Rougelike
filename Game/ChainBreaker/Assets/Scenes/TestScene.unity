@@ -1078,16 +1078,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 273cf39e7479efc4abc12484a0e2fd7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeckController
-  BaseDeck:
-  - Name: 
-    Rarity: 0
-  - Name: 
-    Rarity: 0
-  - Name: 
-    Rarity: 0
+  BaseDeck: []
   Deck: []
   Hand: []
-  HandSize: 1
+  HandSize: 2
   DiscardPile: []
 --- !u!1 &1657395052
 GameObject:

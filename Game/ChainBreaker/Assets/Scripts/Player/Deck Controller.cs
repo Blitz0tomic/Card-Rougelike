@@ -18,9 +18,10 @@ public class DeckController : MonoBehaviour
     void Start()
     {
         BaseDeck = new List<Card>();
-        BaseDeck.Add(CardLibrary.CreateLightningStrike());
-        BaseDeck.Add(CardLibrary.CreateLightningBolt());
-        BaseDeck.Add(CardLibrary.CreateChainLightning());
+        foreach (Card c in CardLibrary.LightningWielder)
+        {
+            BaseDeck.Add(c);
+        }
         Deck = BuildDeck();
         Debug.Log("Deck has " + Deck.Count + " Cards.");
         ShuffleDeck();
@@ -114,11 +115,17 @@ public class Card
 {
     public string Name;
     public RarityType Rarity;
+    public EffectType Type;
+    public EffectTime Time;
+    public bool Crystalizable;
 
-    public Card(string name, RarityType rarity)
+    public Card(string name, RarityType rarity, EffectType type, EffectTime time, bool crystalizable)
     {
         Name = name;
         Rarity = rarity;
+        Type = type;
+        Time = time;
+        Crystalizable = crystalizable;
     }
 }
 public enum RarityType
@@ -126,5 +133,22 @@ public enum RarityType
     Common,
     Rare,
     Legendary
+}
+
+public enum EffectType
+{
+    Damage,
+    Heal,
+    Buff,
+    Curse,
+    Nothing
+}
+
+public enum EffectTime
+{
+    OnPlay,
+    OnDiscard,
+    OnDraw,
+    Never
 }
 
