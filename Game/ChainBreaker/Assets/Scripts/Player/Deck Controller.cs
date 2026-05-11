@@ -18,9 +18,9 @@ public class DeckController : MonoBehaviour
     void Start()
     {
         BaseDeck = new List<Card>();
-        BaseDeck.Add(CardLibrary.LightningBolt);
-        BaseDeck.Add(CardLibrary.LightningStrike);
-        BaseDeck.Add(CardLibrary.ChainLightning);
+        BaseDeck.Add(CardLibrary.CreateLightningStrike());
+        BaseDeck.Add(CardLibrary.CreateLightningBolt());
+        BaseDeck.Add(CardLibrary.CreateChainLightning());
         Deck = BuildDeck();
         Debug.Log("Deck has " + Deck.Count + " Cards.");
         ShuffleDeck();
@@ -82,7 +82,7 @@ public class DeckController : MonoBehaviour
         ShuffleDeck();
     }
     #endregion
-
+    #region Hand manipulation
     public void Draw(int amount)
     {
         for (int i = 0; i < amount; i++)
@@ -107,6 +107,7 @@ public class DeckController : MonoBehaviour
         DiscardPile.AddRange(Hand);
         Hand.Clear();
     }
+#endregion
 }
 [Serializable]
 public class Card

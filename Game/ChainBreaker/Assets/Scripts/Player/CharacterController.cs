@@ -118,7 +118,7 @@ public class CharacterController : MonoBehaviour
         if (DrawAction.WasPerformedThisFrame()) 
         {
             controller.DiscardHand();
-            controller.Draw(2);
+            controller.Draw(controller.HandSize);
         }
     }
     private void FixedUpdate()

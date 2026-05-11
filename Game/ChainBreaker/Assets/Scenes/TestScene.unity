@@ -1079,12 +1079,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeckController
   BaseDeck:
-  - {fileID: 11400000, guid: 64fab7688fc6f11468041aa72053970b, type: 2}
-  - {fileID: 11400000, guid: d19732acc47717a43805c99f868a87c4, type: 2}
-  - {fileID: 11400000, guid: f425cd6daf9a7814e9acee722267d78e, type: 2}
+  - Name: 
+    Rarity: 0
+  - Name: 
+    Rarity: 0
+  - Name: 
+    Rarity: 0
   Deck: []
   Hand: []
-  HandSize: 2
+  HandSize: 1
   DiscardPile: []
 --- !u!1 &1657395052
 GameObject:
