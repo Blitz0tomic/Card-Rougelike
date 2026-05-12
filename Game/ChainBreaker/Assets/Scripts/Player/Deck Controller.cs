@@ -12,13 +12,14 @@ public class DeckController : MonoBehaviour
     public List<Card> Hand;
     public int HandSize = 2;
     public List<Card> DiscardPile;
+    public List<Card> SelectedDeck;
     
     #endregion
     
     void Start()
     {
         BaseDeck = new List<Card>();
-        foreach (Card c in CardLibrary.LightningWielder)
+        foreach (Card c in SelectedDeck)
         {
             BaseDeck.Add(c);
         }
@@ -140,6 +141,7 @@ public enum EffectType
     Damage,
     Heal,
     Buff,
+    Debuff,
     Curse,
     Nothing
 }
