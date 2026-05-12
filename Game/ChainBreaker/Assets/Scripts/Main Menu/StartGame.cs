@@ -1,25 +1,37 @@
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class StartGame : MonoBehaviour
 {
     public GameObject QuitButton;
     public GameObject BlankButton;
-    
+    public Canvas canvas;
+
     public void StartNewGame()
     {
-       QuitButton.SetActive(false);
-       gameObject.SetActive(false);
-        
+        QuitButton.SetActive(false);
+
+
+
+        int i = 0;
+
         foreach (var deck in CardLibrary.Starting_Decks)
         {
-            TMP_Text textbox;
-            GameObject clone = Instantiate(BlankButton);
+            GameObject clone = Instantiate(BlankButton, canvas.transform, false);
+
+            RectTransform rt = clone.GetComponent<RectTransform>();
+            rt.anchoredPosition = new Vector2(0, -50 * i);
+
+            clone.GetComponentInChildren<TMP_Text>().text = deck.Name;
+
             clone.SetActive(true);
-            
-            textbox = clone.GetComponentInChildren<TMP_Text>();
-            textbox.text = deck.Name;
+
+            i++;
+
+            Debug.Log("Created button: " + deck.Name);
         }
+
+
+        gameObject.SetActive(false);
     }
 }

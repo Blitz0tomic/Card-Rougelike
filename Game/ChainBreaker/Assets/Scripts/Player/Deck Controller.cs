@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.XR;
+using static CardLibrary;
+using static TransferSelectedDeck;
 
 public class DeckController : MonoBehaviour
 {
@@ -12,14 +14,15 @@ public class DeckController : MonoBehaviour
     public List<Card> Hand;
     public int HandSize = 2;
     public List<Card> DiscardPile;
-    public List<Card> SelectedDeck;
+    public LoudoutDeck SelectedDeck;
     
     #endregion
     
     void Start()
     {
+        SelectedDeck = GameSession.SelectedDeck;
         BaseDeck = new List<Card>();
-        foreach (Card c in SelectedDeck)
+        foreach (Card c in SelectedDeck.Cards)
         {
             BaseDeck.Add(c);
         }

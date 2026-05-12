@@ -38,18 +38,18 @@ public static class CardLibrary
 
     
     [Serializable]
-    public class LoudoutDecks
+    public class LoudoutDeck
     {
         public string Name;
         public List<Card> Cards;
 
-        public Deck(string name, List<Card> cards)
+        public LoudoutDeck(string name, List<Card> cards)
         {
             Name = name;
             Cards = cards;
         }
     }
-    public static Deck LightningDeck = new Deck(
+    public static LoudoutDeck LightningDeck = new LoudoutDeck(
     "Lightning Deck",
     new List<Card>()
     {
@@ -62,7 +62,7 @@ public static class CardLibrary
     }
 );
 
-    public static Deck IceDeck = new Deck(
+    public static LoudoutDeck IceDeck = new LoudoutDeck(
         "Ice Deck",
         new List<Card>()
         {
@@ -75,11 +75,11 @@ public static class CardLibrary
         }
     );
 
-    public static List<Deck> Starting_Decks = new List<LoudoutDecks>()
-{
+    public static List<LoudoutDeck> Starting_Decks = new List<LoudoutDeck>()
+    {
     LightningDeck,
     IceDeck
-};
+    };
 }
 
 
