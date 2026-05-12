@@ -4,6 +4,8 @@ using UnityEngine;
 public static class CardLibrary
 {
     #region Cards
+
+    #region Attacks
     public static Card CreateChainLightning()
         => new Card("Chain Lightning", RarityType.Rare, EffectType.Damage, EffectTime.OnPlay, false);
 
@@ -12,10 +14,14 @@ public static class CardLibrary
 
     public static Card CreateLightningBolt()
         => new Card("Lightning Bolt", RarityType.Legendary, EffectType.Damage, EffectTime.OnPlay, false);
-    
+    #endregion
+
+    #region buffs
     public static Card CreateCharge()
         => new Card("Charge", RarityType.Common, EffectType.Buff, EffectTime.OnDraw, true);
+    #endregion
 
+    
     public static Card CreateBlank()
         => new Card("Blank", RarityType.Common, EffectType.Nothing, EffectTime.Never, false);
     #endregion
