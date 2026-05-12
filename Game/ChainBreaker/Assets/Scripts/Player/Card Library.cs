@@ -75,10 +75,13 @@ public static class CardLibrary
         }
     );
 
+    
+
     public static List<LoudoutDeck> Starting_Decks = new List<LoudoutDeck>()
     {
     LightningDeck,
-    IceDeck
+    IceDeck,
+    
     };
 }
 
