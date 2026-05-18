@@ -61,10 +61,19 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Previous",
+                    "type": "Button",
+                    "id": "1d2b182a-21c1-467f-b2c0-41093b94960b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Next",
                     "type": "Button",
                     "id": "b7230bb6-fc9b-4f52-8b25-f5e19cb2c2ba",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -82,6 +91,15 @@
                     "name": "Draw",
                     "type": "Button",
                     "id": "11f84ebe-a622-4843-be7a-a366937a8e5b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PlayCard",
+                    "type": "Button",
+                    "id": "e9fd0471-feb3-4b76-a630-7cf8116404ac",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -344,6 +362,28 @@
                 },
                 {
                     "name": "",
+                    "id": "51e7155b-4193-4f64-86a6-e88c78cfcb69",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Previous",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6cff5cea-16c0-4107-9875-c14a28ec6e78",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Previous",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f2e9ba44-c423-42a7-ad56-f20975884794",
                     "path": "<Keyboard>/leftShift",
                     "interactions": "",
@@ -460,6 +500,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Draw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ce095243-4e78-4964-9d6d-da53221943bd",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PlayCard",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

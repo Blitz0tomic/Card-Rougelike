@@ -17,6 +17,9 @@ public class CharacterController : MonoBehaviour
     private InputAction interactAction;
     private InputAction sprintAction;
     private InputAction DrawAction;
+    private InputAction NextAction;
+    private InputAction PrevAction;
+    private InputAction PlayCardAction;
     #endregion
 
     public CardController controller;
@@ -45,7 +48,7 @@ public class CharacterController : MonoBehaviour
     public Vector3 maxSpeed;
     public GameObject attackBox;
 
-   
+    public int SelectedCard = 0;
 
     bool attackReady = true;
     #endregion
@@ -59,6 +62,9 @@ public class CharacterController : MonoBehaviour
         interactAction = InputSystem.actions.FindAction("Interact");
         sprintAction = InputSystem.actions.FindAction("Sprint");
         DrawAction = InputSystem.actions.FindAction("Draw");
+        NextAction = InputSystem.actions.FindAction("Next");
+        PrevAction = InputSystem.actions.FindAction("Previous");
+        PlayCardAction = InputSystem.actions.FindAction("PlayCard");
         rb = GetComponent<Rigidbody>();
         rb.linearDamping = 0.5f;
         maxSpeed = new Vector3(Maxspeed, 0, Maxspeed);
@@ -119,6 +125,29 @@ public class CharacterController : MonoBehaviour
         {
             controller.DiscardHand();
             controller.Draw(controller.HandSize);
+        }
+
+        if (NextAction.WasPerformedThisFrame())
+        {
+            SelectedCard += 1;
+            if (SelectedCard >= controller.Hand.Count)
+            {
+                SelectedCard = 0;
+            }
+        }
+
+        if (PrevAction.WasPerformedThisFrame()) 
+        { 
+            SelectedCard -= 1;
+            if (SelectedCard < 0)
+            {
+                SelectedCard = controller.Hand.Count;
+            }
+        }
+
+        if (PlayCardAction.WasPerformedThisFrame())
+        {
+            controller.Hand[SelectedCard].OnPlay();
         }
     }
     private void FixedUpdate()

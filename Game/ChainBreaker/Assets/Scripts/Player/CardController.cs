@@ -16,6 +16,7 @@ public class CardController : MonoBehaviour
     public List<Card> DiscardPile;
     public LoudoutDeck SelectedDeck;
     
+    
     #endregion
     
     void Start()
@@ -99,31 +100,22 @@ public class CardController : MonoBehaviour
 
             Card drawn = Deck[0];
             Hand.Add(drawn);
-            if (drawn.DrawEffect)
-            {
-                //Trigger draw effect
-            }
+            drawn.OnDraw();
             Deck.RemoveAt(0);
         }
     }
-    public void Discard(int i)
-    {
-        DiscardPile.Add(Hand[i]);
-        if (Hand[i].DiscardEffect)
-        {
-            //Trigger discard effect
-        }
-        Hand.RemoveAt(i);
-    }
+    //public void Discard(int i)
+    //{
+    //    DiscardPile.Add(Hand[i]);
+    //    Hand[1].OnDiscard();
+    //    Hand.RemoveAt(i);
+    //}
     public void DiscardHand()
     {
         DiscardPile.AddRange(Hand);
         foreach (Card c in Hand)
         {
-            if (c.DiscardEffect)
-            {
-                //Trigger discard effect
-            }
+            c.OnDiscard();
         }
         Hand.Clear();
     }
@@ -137,22 +129,31 @@ public class Card
     public string Name;
     public RarityType Rarity;
     public EffectType Type;
-    public EffectTime Time;
     public bool Crystalizable;
-    public bool DiscardEffect;
-    public bool DrawEffect;
-    public bool PlayEffect;
+    
 
-    public Card(string name, RarityType rarity, EffectType type, EffectTime time, bool crystalizable, bool drawEffect, bool playEffect, bool discardEffect)
+    public Card(string name, RarityType rarity, EffectType type, bool crystalizable)
     {
         Name = name;
         Rarity = rarity;
         Type = type;
-        Time = time;
         Crystalizable = crystalizable;
-        DiscardEffect = discardEffect;
-        DrawEffect = drawEffect;
-        PlayEffect = playEffect;
+        
+    }
+
+    public virtual void OnDraw()
+    {
+        // Default: no effect
+    }
+
+    public virtual void OnPlay()
+    {
+        // Default: no effect
+    }
+
+    public virtual void OnDiscard()
+    {
+        // Default: no effect
     }
 }
 public enum RarityType
@@ -170,13 +171,5 @@ public enum EffectType
     Debuff,
     Curse,
     Nothing
-}
-
-public enum EffectTime
-{
-    OnPlay,
-    OnDiscard,
-    OnDraw,
-    Never
 }
 
