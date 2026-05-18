@@ -22,6 +22,11 @@ public class CardController : MonoBehaviour
     void Start()
     {
         SelectedDeck = GameSession.SelectedDeck;
+        if (SelectedDeck == null)
+        {
+            Debug.Log("SelectedDeck Null");
+            SelectedDeck = Starting_Decks[1];
+        }
         BaseDeck = new List<Card>();
         foreach (Card c in SelectedDeck.Cards)
         {

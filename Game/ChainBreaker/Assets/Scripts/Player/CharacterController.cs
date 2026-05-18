@@ -141,7 +141,7 @@ public class CharacterController : MonoBehaviour
             SelectedCard -= 1;
             if (SelectedCard < 0)
             {
-                SelectedCard = controller.Hand.Count;
+                SelectedCard = controller.Hand.Count - 1;
             }
         }
 

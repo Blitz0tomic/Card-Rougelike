@@ -10,12 +10,13 @@ public class TransferSelectedDeck : MonoBehaviour
     
     public void TransferDeck(string SceneName) 
     {
-        SceneManager.LoadScene(SceneName);
+        
         string selectedName = gameObject.GetComponentInChildren<TMP_Text>().text;
 
         GameSession.SelectedDeck = CardLibrary.Starting_Decks
             .FirstOrDefault(deck => deck.Name == selectedName);
-       
+        SceneManager.LoadScene(SceneName);
+
     }
 
     public static class GameSession

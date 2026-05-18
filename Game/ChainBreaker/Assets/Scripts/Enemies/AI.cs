@@ -88,7 +88,7 @@ public class AI : MonoBehaviour
     {
         
             waypointNumber++;
-            if (waypointNumber > waypoints.Count) { waypointNumber = 0; }
+            if (waypointNumber >= waypoints.Count) { waypointNumber = 0; }
             SetDestination();
         
     }

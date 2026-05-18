@@ -9,16 +9,16 @@ public static class CardLibrary
 
     #region Attacks
     public static Card CreateChainLightning()
-        => new Card("Chain Lightning", RarityType.Rare, EffectType.Damage, false);
+        => new ChainLightning();
 
     public static Card CreateIceBolt()
-        => new Card("IceBolt", RarityType.Common, EffectType.Damage, false);
+        => new IceBolt();
 
     public static Card CreateLightningStrike()
-        => new Card("Lightning Strike", RarityType.Common, EffectType.Damage, false);
+        => new LightningStrike();
 
     public static Card CreateLightningBolt()
-        => new Card("Lightning Bolt", RarityType.Legendary, EffectType.Damage, false);
+        => new LightningBolt();
     #endregion
 
     #region buffs
@@ -28,7 +28,7 @@ public static class CardLibrary
 
     #region Debuffs
     public static Card CreateFreeze()
-        => new Card("Freeze", RarityType.Common, EffectType.Debuff, true);
+        => new Freeze();
     #endregion
 
 
@@ -50,6 +50,26 @@ public static class CardLibrary
             Debug.Log("Lightning Bolt");
         }
     }
+    public class ChainLightning : Card
+    {
+        public ChainLightning() : base("Chain Lightning", RarityType.Rare, EffectType.Damage, false) { }
+
+        public override void OnPlay() { }
+    }
+
+    public class IceBolt : Card
+    {
+        public IceBolt() : base("IceBolt", RarityType.Common, EffectType.Damage, false) { }
+
+        public override void OnPlay() { }
+    }
+
+    public class LightningStrike : Card
+    {
+        public LightningStrike() : base("Lightning Strike", RarityType.Common, EffectType.Damage, false) { }
+
+        public override void OnPlay() { }
+    }
     #endregion
 
     #region Buffs
@@ -65,10 +85,16 @@ public static class CardLibrary
                 Debug.Log("Charge triggered!");
             }
         }
-        #endregion
-    
-        #region Debuffs
-        #endregion
+    #endregion
+
+    #region Debuffs
+    public class Freeze : Card
+    {
+        public Freeze() : base("Freeze", RarityType.Common, EffectType.Debuff, true) { }
+
+        public override void OnPlay() { }
+    }
+    #endregion
     #endregion
 
     [Serializable]
