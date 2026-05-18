@@ -21,7 +21,7 @@ public class CharacterController : MonoBehaviour
 
     public CardController controller;
     public int health;
-    public int armor;
+    public int armor = 0;
 
     bool invincible = false;
     public float invincTime;
@@ -45,7 +45,7 @@ public class CharacterController : MonoBehaviour
     public Vector3 maxSpeed;
     public GameObject attackBox;
 
-    public ArmorChecker armorChecker;
+   
 
     bool attackReady = true;
     #endregion
@@ -220,13 +220,8 @@ public class CharacterController : MonoBehaviour
     }
     #endregion
 
-    #region reputation
     
-    #endregion
-    public void UpdateArmor()
-    {
-        armor = armorChecker.ArmorData.armor;
-    }
+    
     private void Die()
     {
         Debug.Log("Player died");
