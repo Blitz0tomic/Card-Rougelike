@@ -860,8 +860,6 @@ GameObject:
   - component: {fileID: 1594140712}
   - component: {fileID: 1594140714}
   - component: {fileID: 1594140713}
-  - component: {fileID: 1594140718}
-  - component: {fileID: 1594140719}
   - component: {fileID: 1594140720}
   - component: {fileID: 1594140721}
   m_Layer: 0
@@ -1024,32 +1022,6 @@ Transform:
   - {fileID: 1585027624}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &1594140718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1594140711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 350753b5f7394824c939c36555eebe1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reputationData: {fileID: 11400000, guid: dcd5f080cc69e004fae8c7fd0bd9d25c, type: 2}
---- !u!114 &1594140719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1594140711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71549a45ba7c17b4391b1f27328ebb6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ArmorData: {fileID: 11400000, guid: 86a364f701194d641b6ee14a749e043e, type: 2}
 --- !u!208 &1594140720
 NavMeshObstacle:
   m_ObjectHideFlags: 0
