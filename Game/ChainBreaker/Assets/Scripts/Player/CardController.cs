@@ -6,7 +6,7 @@ using UnityEngine.XR;
 using static CardLibrary;
 using static TransferSelectedDeck;
 
-public class DeckController : MonoBehaviour
+public class CardController : MonoBehaviour
 {
     #region Variable Declaration
     public List<Card> BaseDeck;
@@ -99,17 +99,32 @@ public class DeckController : MonoBehaviour
 
             Card drawn = Deck[0];
             Hand.Add(drawn);
+            if (drawn.DrawEffect)
+            {
+                //Trigger draw effect
+            }
             Deck.RemoveAt(0);
         }
     }
     public void Discard(int i)
     {
         DiscardPile.Add(Hand[i]);
+        if (Hand[i].DiscardEffect)
+        {
+            //Trigger discard effect
+        }
         Hand.RemoveAt(i);
     }
     public void DiscardHand()
     {
         DiscardPile.AddRange(Hand);
+        foreach (Card c in Hand)
+        {
+            if (c.DiscardEffect)
+            {
+                //Trigger discard effect
+            }
+        }
         Hand.Clear();
     }
 
@@ -124,14 +139,20 @@ public class Card
     public EffectType Type;
     public EffectTime Time;
     public bool Crystalizable;
+    public bool DiscardEffect;
+    public bool DrawEffect;
+    public bool PlayEffect;
 
-    public Card(string name, RarityType rarity, EffectType type, EffectTime time, bool crystalizable)
+    public Card(string name, RarityType rarity, EffectType type, EffectTime time, bool crystalizable, bool drawEffect, bool playEffect, bool discardEffect)
     {
         Name = name;
         Rarity = rarity;
         Type = type;
         Time = time;
         Crystalizable = crystalizable;
+        DiscardEffect = discardEffect;
+        DrawEffect = drawEffect;
+        PlayEffect = playEffect;
     }
 }
 public enum RarityType

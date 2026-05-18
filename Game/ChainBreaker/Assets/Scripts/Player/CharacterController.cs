@@ -19,7 +19,7 @@ public class CharacterController : MonoBehaviour
     private InputAction DrawAction;
     #endregion
 
-    public DeckController controller;
+    public CardController controller;
     public int health;
     public int armor;
 
