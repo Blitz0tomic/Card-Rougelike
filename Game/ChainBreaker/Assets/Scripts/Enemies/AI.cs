@@ -38,29 +38,29 @@ public class AI : MonoBehaviour
             patrolling = true;
             chasing = false;
         }
-        
-        agent.stoppingDistance = desiredDistance;
+        else
+        {
+            DistanceToPlayer = Vector3.Distance(agent.gameObject.transform.position, player.transform.position);
 
-       DistanceToPlayer = Vector3.Distance(agent.gameObject.transform.position, player.transform.position);
-
-        if (DistanceToPlayer < chaseDistance)
-        {
-            chasing = true;
-        }
-        if (chasing)
-        {
-            Chase();
-            patrolling = false;
-        }
-        if (DistanceToPlayer < attackDistance && attackReady)
-        {
-            agent.isStopped = true;
-            agent.gameObject.transform.LookAt(player.gameObject.transform);
-            StartCoroutine(Attack());
-        }
-        if (DistanceToPlayer > attackDistance && !patrolling)
-        {
-            agent.isStopped = false;
+            if (DistanceToPlayer < chaseDistance)
+            {
+                chasing = true;
+            }
+            if (chasing)
+            {
+                Chase();
+                patrolling = false;
+            }
+            if (DistanceToPlayer < attackDistance && attackReady)
+            {
+                agent.isStopped = true;
+                agent.gameObject.transform.LookAt(player.gameObject.transform);
+                StartCoroutine(Attack());
+            }
+            if (DistanceToPlayer > attackDistance && !patrolling)
+            {
+                agent.isStopped = false;
+            }
         }
         if (patrolling)
         {
