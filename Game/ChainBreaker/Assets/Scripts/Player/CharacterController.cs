@@ -124,7 +124,7 @@ public class CharacterController : MonoBehaviour
         if (DrawAction.WasPerformedThisFrame()) 
         {
             controller.DiscardHand();
-            controller.Draw(controller.HandSize);
+            
         }
 
         if (NextAction.WasPerformedThisFrame())

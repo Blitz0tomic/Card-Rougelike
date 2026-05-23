@@ -31,6 +31,7 @@ public class CardController : MonoBehaviour
         foreach (Card c in SelectedDeck.Cards)
         {
             BaseDeck.Add(c);
+            c.findController();
         }
         Deck = BuildDeck();
         Debug.Log("Deck has " + Deck.Count + " Cards.");
@@ -44,7 +45,15 @@ public class CardController : MonoBehaviour
         DiscardPile = new List<Card>();
     }
 
-    
+    void Update()
+    {
+       if (Hand.Count == 0)
+        {
+            RefillHand();
+        }
+    }
+
+
     #region BaseDeck Manipulation
     public void AddCardToBaseDeck(Card Card)
     {
@@ -106,75 +115,38 @@ public class CardController : MonoBehaviour
             Card drawn = Deck[0];
             Hand.Add(drawn);
             drawn.OnDraw();
+            StartCoroutine(drawn.AutoPlay());
             Deck.RemoveAt(0);
         }
     }
-    //public void Discard(int i)
-    //{
-    //    DiscardPile.Add(Hand[i]);
-    //    Hand[1].OnDiscard();
-    //    Hand.RemoveAt(i);
-    //}
+    public void Discard(Card card)
+    {
+        DiscardPile.Add(card);
+        card.OnDiscard();
+        Hand.Remove(card);
+    }
+
+
     public void DiscardHand()
     {
-        DiscardPile.AddRange(Hand);
+        
         foreach (Card c in Hand)
         {
+            DiscardPile.Add(c);
             c.OnDiscard();
         }
         Hand.Clear();
+        RefillHand();
+
+    }
+
+    public void RefillHand()
+    {
+        Draw(HandSize - Hand.Count);
     }
 
 
 #endregion
 }
-[Serializable]
-public class Card
-{
-    public string Name;
-    public RarityType Rarity;
-    public EffectType Type;
-    public bool Crystalizable;
-    
 
-    public Card(string name, RarityType rarity, EffectType type, bool crystalizable)
-    {
-        Name = name;
-        Rarity = rarity;
-        Type = type;
-        Crystalizable = crystalizable;
-        
-    }
-
-    public virtual void OnDraw()
-    {
-        // Default: no effect
-    }
-
-    public virtual void OnPlay()
-    {
-        // Default: no effect
-    }
-
-    public virtual void OnDiscard()
-    {
-        // Default: no effect
-    }
-}
-public enum RarityType
-{
-    Common,
-    Rare,
-    Legendary
-}
-
-public enum EffectType
-{
-    Damage,
-    Heal,
-    Buff,
-    Debuff,
-    Curse,
-    Nothing
-}
 

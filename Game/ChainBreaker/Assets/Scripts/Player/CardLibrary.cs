@@ -1,10 +1,12 @@
 using NUnit.Framework;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public static class CardLibrary
 {
+    
     #region Card creators
 
     #region Attacks
@@ -37,6 +39,70 @@ public static class CardLibrary
     #endregion
 
     #region Card Classes
+    #region base card class
+    [Serializable]
+    public class Card
+    {
+        public CardController controller; //= GameObject.FindWithTag("Player").GetComponent<CardController>();
+        public string Name;
+        public RarityType Rarity;
+        public EffectType Type;
+        public bool Crystalizable;
+        //bool autoPlayed = false;
+        public float autoplayTimer = 3f;
+        public Card(string name, RarityType rarity, EffectType type, bool crystalizable)
+        {
+            Name = name;
+            Rarity = rarity;
+            Type = type;
+            Crystalizable = crystalizable;
+        }
+
+        public virtual void findController()
+        {
+            controller = GameObject.FindWithTag("Player").GetComponent<CardController>();
+        }
+
+        public virtual void OnDraw()
+        {
+            // Default: no effect
+        }
+
+        public virtual void OnPlay()
+        {
+            // Default: no effect
+        }
+
+        public virtual void OnDiscard()
+        {
+            // Default: no effect
+        }
+
+        public IEnumerator AutoPlay()
+        {
+            yield return new WaitForSeconds(3f);
+            //bool autoPlayed = true;
+            OnPlay();
+        }
+    }
+    public enum RarityType
+    {
+        Common,
+        Rare,
+        Legendary
+    }
+
+    public enum EffectType
+    {
+        Damage,
+        Heal,
+        Buff,
+        Debuff,
+        Curse,
+        Nothing
+    }
+    #endregion
+
     #region Attacks
     public class LightningBolt : Card
     {
@@ -54,7 +120,10 @@ public static class CardLibrary
     {
         public ChainLightning() : base("Chain Lightning", RarityType.Rare, EffectType.Damage, false) { }
 
-        public override void OnPlay() { }
+        public override void OnPlay() 
+        {
+            Debug.Log("Chain Lightning");
+        }
     }
 
     public class IceBolt : Card
@@ -68,7 +137,13 @@ public static class CardLibrary
     {
         public LightningStrike() : base("Lightning Strike", RarityType.Common, EffectType.Damage, false) { }
 
-        public override void OnPlay() { }
+        public override void OnPlay() 
+        { 
+            Debug.Log("Lightning Strike Played");
+            controller.DiscardPile.Add(this);
+            controller.Hand.Remove(this);
+        }
+        
     }
     #endregion
 
@@ -84,6 +159,7 @@ public static class CardLibrary
             {
                 Debug.Log("Charge triggered!");
             }
+        
         }
     #endregion
 
@@ -96,7 +172,6 @@ public static class CardLibrary
     }
     #endregion
     #endregion
-
     [Serializable]
     public class LoudoutDeck
     {
@@ -120,8 +195,7 @@ public static class CardLibrary
         CreateLightningStrike(),
         CreateLightningStrike(),
         CreateLightningStrike(),
-    }
-);
+    });
 
     public static LoudoutDeck IceDeck = new LoudoutDeck(
         "Ice Deck",
@@ -133,8 +207,7 @@ public static class CardLibrary
         CreateIceBolt(),
         CreateIceBolt(),
         CreateIceBolt(),
-        }
-    );
+        });
 
     public static List<LoudoutDeck> Starting_Decks = new List<LoudoutDeck>()
     {
