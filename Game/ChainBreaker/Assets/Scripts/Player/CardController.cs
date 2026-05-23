@@ -114,6 +114,7 @@ public class CardController : MonoBehaviour
 
             Card drawn = Deck[0];
             Hand.Add(drawn);
+            drawn.Played = false;
             drawn.OnDraw();
             StartCoroutine(drawn.AutoPlay());
             Deck.RemoveAt(0);

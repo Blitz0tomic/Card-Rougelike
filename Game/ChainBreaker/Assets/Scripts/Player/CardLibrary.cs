@@ -48,7 +48,7 @@ public static class CardLibrary
         public RarityType Rarity;
         public EffectType Type;
         public bool Crystalizable;
-        //bool autoPlayed = false;
+        public bool Played = false;
         public float autoplayTimer = 3f;
         public Card(string name, RarityType rarity, EffectType type, bool crystalizable)
         {
@@ -81,8 +81,10 @@ public static class CardLibrary
         public IEnumerator AutoPlay()
         {
             yield return new WaitForSeconds(3f);
-            //bool autoPlayed = true;
-            OnPlay();
+            if (!Played)
+            {
+                OnPlay();
+            }
         }
     }
     public enum RarityType
@@ -138,10 +140,14 @@ public static class CardLibrary
         public LightningStrike() : base("Lightning Strike", RarityType.Common, EffectType.Damage, false) { }
 
         public override void OnPlay() 
-        { 
-            Debug.Log("Lightning Strike Played");
-            controller.DiscardPile.Add(this);
-            controller.Hand.Remove(this);
+        {
+            
+                Played = true;
+                Debug.Log("Lightning Strike Played");
+                controller.DiscardPile.Add(this);
+                controller.Hand.Remove(this);
+            
+            
         }
         
     }
