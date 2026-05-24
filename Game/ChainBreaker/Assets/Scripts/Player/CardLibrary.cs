@@ -108,6 +108,7 @@ public static class CardLibrary
     #endregion
 
     #region Attacks
+//big attack on everything in an area
     public class LightningBolt : Card
     {
         public LightningBolt() : base("Lightning Bolt", RarityType.Legendary, EffectType.Damage, false)
@@ -120,6 +121,7 @@ public static class CardLibrary
             base.OnPlay();
         }
     }
+//attack that bounces between enemies
     public class ChainLightning : Card
     {
         public ChainLightning() : base("Chain Lightning", RarityType.Rare, EffectType.Damage, false) { }
@@ -129,7 +131,7 @@ public static class CardLibrary
             base.OnPlay(); ;
         }
     }
-
+//attack that deals more damage to frozen enemies
     public class IceBolt : Card
     {
         public IceBolt() : base("IceBolt", RarityType.Common, EffectType.Damage, false) { }
@@ -138,7 +140,7 @@ public static class CardLibrary
             base.OnPlay();
         }
     }
-
+//ranged attack
     public class LightningStrike : Card
     {
         public LightningStrike() : base("Lightning Strike", RarityType.Common, EffectType.Damage, false) { }
@@ -155,6 +157,7 @@ public static class CardLibrary
     #endregion
 
     #region Buffs
+//buff that causes the next lightning attack to be stronger
     public class Charge : Card
         {
             public Charge(): base("Charge", RarityType.Common,
@@ -176,6 +179,7 @@ public static class CardLibrary
     #endregion
 
     #region Debuffs
+//applies the frozen debuff to an enemy, causing it to move slower
     public class Freeze : Card
     {
         public Freeze() : base("Freeze", RarityType.Common, EffectType.Debuff, true) { }
