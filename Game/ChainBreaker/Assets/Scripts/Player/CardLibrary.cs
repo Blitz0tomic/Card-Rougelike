@@ -70,7 +70,9 @@ public static class CardLibrary
 
         public virtual void OnPlay()
         {
-            // Default: no effect
+            Played = true;
+            controller.DiscardPile.Add(this);
+            controller.Hand.Remove(this);
         }
 
         public virtual void OnDiscard()
@@ -115,10 +117,7 @@ public static class CardLibrary
 
         public override void OnPlay()
         {
-            Played = true;
-            Debug.Log(this.Name + "Played");
-            controller.DiscardPile.Add(this);
-            controller.Hand.Remove(this);
+            base.OnPlay();
         }
     }
     public class ChainLightning : Card
@@ -127,10 +126,7 @@ public static class CardLibrary
 
         public override void OnPlay() 
         {
-            Played = true;
-            Debug.Log(this.Name + "Played");
-            controller.DiscardPile.Add(this);
-            controller.Hand.Remove(this);
+            base.OnPlay(); ;
         }
     }
 
@@ -139,10 +135,7 @@ public static class CardLibrary
         public IceBolt() : base("IceBolt", RarityType.Common, EffectType.Damage, false) { }
 
         public override void OnPlay() {
-            Played = true;
-            Debug.Log(this.Name + "Played");
-            controller.DiscardPile.Add(this);
-            controller.Hand.Remove(this);
+            base.OnPlay();
         }
     }
 
@@ -153,10 +146,7 @@ public static class CardLibrary
         public override void OnPlay() 
         {
 
-            Played = true;
-            Debug.Log(this.Name + "Played");
-            controller.DiscardPile.Add(this);
-            controller.Hand.Remove(this);
+            base.OnPlay();
 
 
         }
@@ -179,10 +169,7 @@ public static class CardLibrary
 
         public override void OnPlay()
         {
-            Played = true;
-            Debug.Log(this.Name +"Played");
-            controller.DiscardPile.Add(this);
-            controller.Hand.Remove(this);
+            base.OnPlay();
         }
         
         }
@@ -195,10 +182,7 @@ public static class CardLibrary
 
         public override void OnPlay() 
         {
-            Played = true;
-            Debug.Log(this.Name + "Played");
-            controller.DiscardPile.Add(this);
-            controller.Hand.Remove(this);
+            base.OnPlay();
         }
     }
     #endregion
