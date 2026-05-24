@@ -115,7 +115,10 @@ public static class CardLibrary
 
         public override void OnPlay()
         {
-            Debug.Log("Lightning Bolt");
+            Played = true;
+            Debug.Log(this.Name + "Played");
+            controller.DiscardPile.Add(this);
+            controller.Hand.Remove(this);
         }
     }
     public class ChainLightning : Card
@@ -124,7 +127,10 @@ public static class CardLibrary
 
         public override void OnPlay() 
         {
-            Debug.Log("Chain Lightning");
+            Played = true;
+            Debug.Log(this.Name + "Played");
+            controller.DiscardPile.Add(this);
+            controller.Hand.Remove(this);
         }
     }
 
@@ -132,7 +138,12 @@ public static class CardLibrary
     {
         public IceBolt() : base("IceBolt", RarityType.Common, EffectType.Damage, false) { }
 
-        public override void OnPlay() { }
+        public override void OnPlay() {
+            Played = true;
+            Debug.Log(this.Name + "Played");
+            controller.DiscardPile.Add(this);
+            controller.Hand.Remove(this);
+        }
     }
 
     public class LightningStrike : Card
@@ -141,13 +152,13 @@ public static class CardLibrary
 
         public override void OnPlay() 
         {
-            
-                Played = true;
-                Debug.Log("Lightning Strike Played");
-                controller.DiscardPile.Add(this);
-                controller.Hand.Remove(this);
-            
-            
+
+            Played = true;
+            Debug.Log(this.Name + "Played");
+            controller.DiscardPile.Add(this);
+            controller.Hand.Remove(this);
+
+
         }
         
     }
@@ -165,6 +176,14 @@ public static class CardLibrary
             {
                 Debug.Log("Charge triggered!");
             }
+
+        public override void OnPlay()
+        {
+            Played = true;
+            Debug.Log(this.Name +"Played");
+            controller.DiscardPile.Add(this);
+            controller.Hand.Remove(this);
+        }
         
         }
     #endregion
@@ -174,7 +193,13 @@ public static class CardLibrary
     {
         public Freeze() : base("Freeze", RarityType.Common, EffectType.Debuff, true) { }
 
-        public override void OnPlay() { }
+        public override void OnPlay() 
+        {
+            Played = true;
+            Debug.Log(this.Name + "Played");
+            controller.DiscardPile.Add(this);
+            controller.Hand.Remove(this);
+        }
     }
     #endregion
     #endregion
