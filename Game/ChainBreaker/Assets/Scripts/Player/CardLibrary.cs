@@ -156,7 +156,7 @@ public static class CardLibrary
 
     #region Buffs
     public class Charge : Card
-        {
+    {
             public Charge(): base("Charge", RarityType.Common,
                        EffectType.Buff, true)
             {
@@ -167,12 +167,13 @@ public static class CardLibrary
                 Debug.Log("Charge triggered!");
             }
 
-        public override void OnPlay()
-        {
-            base.OnPlay();
-        }
-        
-        }
+           
+
+
+
+
+
+    }
     #endregion
 
     #region Debuffs
@@ -180,10 +181,7 @@ public static class CardLibrary
     {
         public Freeze() : base("Freeze", RarityType.Common, EffectType.Debuff, true) { }
 
-        public override void OnPlay() 
-        {
-            base.OnPlay();
-        }
+        
     }
     #endregion
     #endregion
