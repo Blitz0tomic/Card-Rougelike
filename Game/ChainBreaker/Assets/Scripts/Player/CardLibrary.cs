@@ -43,7 +43,7 @@ public static class CardLibrary
     [Serializable]
     public class Card
     {
-        public CardController controller; //= GameObject.FindWithTag("Player").GetComponent<CardController>();
+        public CardController controller;
         public string Name;
         public RarityType Rarity;
         public EffectType Type;
