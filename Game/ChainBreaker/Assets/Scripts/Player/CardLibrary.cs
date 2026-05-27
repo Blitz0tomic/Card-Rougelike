@@ -35,7 +35,7 @@ public static class CardLibrary
 
 
     public static Card CreateBlank()
-        => new Card("Blank", RarityType.Common, EffectType.Nothing, false);
+        => new Card("Blank", RarityType.Common, EffectType.Nothing, ElementType.None, false);
     #endregion
 
     #region Card Classes
@@ -50,7 +50,7 @@ public static class CardLibrary
         public bool Crystalizable;
         public bool Played = false;
         public float autoplayTimer = 3f;
-        public Card(string name, RarityType rarity, EffectType type, bool crystalizable)
+        public Card(string name, RarityType rarity, EffectType type, ElementType element,bool crystalizable)
         {
             Name = name;
             Rarity = rarity;
@@ -105,13 +105,21 @@ public static class CardLibrary
         Curse,
         Nothing
     }
+
+    public enum ElementType
+    {
+        Lightning,
+        Ice,
+        Fire,
+        None
+    }
     #endregion
 
     #region Attacks
-//big attack on everything in an area
+    //big attack on everything in an area
     public class LightningBolt : Card
     {
-        public LightningBolt() : base("Lightning Bolt", RarityType.Legendary, EffectType.Damage, false)
+        public LightningBolt() : base("Lightning Bolt", RarityType.Legendary, EffectType.Damage, ElementType.None ,false)
         {
 
         }
@@ -124,7 +132,7 @@ public static class CardLibrary
 //attack that bounces between enemies
     public class ChainLightning : Card
     {
-        public ChainLightning() : base("Chain Lightning", RarityType.Rare, EffectType.Damage, false) { }
+        public ChainLightning() : base("Chain Lightning", RarityType.Rare, EffectType.Damage, ElementType.Lightning, false) { }
 
         public override void OnPlay() 
         {
@@ -134,7 +142,7 @@ public static class CardLibrary
 //attack that deals more damage to frozen enemies
     public class IceBolt : Card
     {
-        public IceBolt() : base("IceBolt", RarityType.Common, EffectType.Damage, false) { }
+        public IceBolt() : base("IceBolt", RarityType.Common, EffectType.Damage, ElementType.Ice, false) { }
 
         public override void OnPlay() {
             base.OnPlay();
@@ -143,7 +151,7 @@ public static class CardLibrary
 //ranged attack
     public class LightningStrike : Card
     {
-        public LightningStrike() : base("Lightning Strike", RarityType.Common, EffectType.Damage, false) { }
+        public LightningStrike() : base("Lightning Strike", RarityType.Common, EffectType.Damage, ElementType.Ice, false) { }
 
         public override void OnPlay() 
         {
@@ -161,7 +169,7 @@ public static class CardLibrary
     public class Charge : Card
     {
             public Charge(): base("Charge", RarityType.Common,
-                       EffectType.Buff, true)
+                       EffectType.Buff, ElementType.None, true)
             {
             }
 
@@ -169,13 +177,6 @@ public static class CardLibrary
             {
                 Debug.Log("Charge triggered!");
             }
-
-           
-
-
-
-
-
     }
     #endregion
 
@@ -183,9 +184,8 @@ public static class CardLibrary
 //applies the frozen debuff to an enemy, causing it to move slower
     public class Freeze : Card
     {
-        public Freeze() : base("Freeze", RarityType.Common, EffectType.Debuff, true) { }
-
-        
+        public Freeze() : base("Freeze", RarityType.Common, EffectType.Debuff, ElementType.None, true) { }
+              
     }
     #endregion
     #endregion
@@ -224,13 +224,19 @@ public static class CardLibrary
         CreateIceBolt(),
         CreateIceBolt(),
         CreateIceBolt(),
-        });
+    });
 
+    public static LoudoutDeck FireDeck = new LoudoutDeck(
+        "Fire Deck",
+        new List<Card>()
+        {
+        
+        });
     public static List<LoudoutDeck> Starting_Decks = new List<LoudoutDeck>()
     {
     LightningDeck,
     IceDeck,
-    
+    FireDeck,
     };
 }
 
