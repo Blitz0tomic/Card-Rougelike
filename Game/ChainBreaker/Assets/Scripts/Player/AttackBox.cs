@@ -27,7 +27,7 @@ public class AttackBox : MonoBehaviour
                     else
                     {
                         var target1 = target.GetComponent<EnemyHealth>();
-                        target1.TakeDamage(damage);
+                        target1.TakeDamage(damage, CardLibrary.ElementType.None);
                         damaged_Enemies.Add(other.name);
                         Debug.Log($"Hit {other.name} for {damage} damage.");
                     }
