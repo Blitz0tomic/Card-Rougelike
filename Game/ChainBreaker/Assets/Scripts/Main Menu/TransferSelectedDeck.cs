@@ -21,6 +21,6 @@ public class TransferSelectedDeck : MonoBehaviour
 
     public static class GameSession
     {
-        public static CardLibrary.LoudoutDeck SelectedDeck;
+        public static CardLibrary.LoadoutDeck SelectedDeck;
     }
 }

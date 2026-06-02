@@ -19,12 +19,14 @@ public static class CardLibrary
         public bool Crystalizable;
         public bool Played = false;
         public float autoplayTimer = 3f;
+        public ElementType Element;
         public Card(string name, RarityType rarity, EffectType type, ElementType element, bool crystalizable)
         {
             Name = name;
             Rarity = rarity;
             Type = type;
             Crystalizable = crystalizable;
+            Element = element;
         }
 
         public virtual void findController()
@@ -51,37 +53,14 @@ public static class CardLibrary
 
         public IEnumerator AutoPlay()
         {
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(autoplayTimer);
             if (!Played)
             {
                 OnPlay();
             }
         }
     }
-    public enum RarityType
-    {
-        Common,
-        Rare,
-        Legendary
-    }
-
-    public enum EffectType
-    {
-        Damage,
-        Heal,
-        Buff,
-        Debuff,
-        Curse,
-        Nothing
-    }
-
-    public enum ElementType
-    {
-        Lightning,
-        Ice,
-        Fire,
-        None
-    }
+    
     #endregion
 
     #region Attacks
@@ -105,7 +84,7 @@ public static class CardLibrary
 
         public override void OnPlay()
         {
-            base.OnPlay(); ;
+            base.OnPlay();
         }
     }
     //attack that deals more damage to frozen enemies
@@ -121,7 +100,7 @@ public static class CardLibrary
     //ranged attack
     public class LightningStrike : Card
     {
-        public LightningStrike() : base("Lightning Strike", RarityType.Common, EffectType.Damage, ElementType.Ice, false) { }
+        public LightningStrike() : base("Lightning Strike", RarityType.Common, EffectType.Damage, ElementType.Lightning, false) { }
 
         public override void OnPlay()
         {
@@ -160,86 +139,59 @@ public static class CardLibrary
     #endregion
     #endregion
 
-    #region Card creators
+    
 
-    #region Attacks
-    public static Card CreateChainLightning()
-        => new ChainLightning();
-
-    public static Card CreateIceBolt()
-        => new IceBolt();
-
-    public static Card CreateLightningStrike()
-        => new LightningStrike();
-
-    public static Card CreateLightningBolt()
-        => new LightningBolt();
-    #endregion
-
-    #region buffs
-    public static Card CreateCharge()
-        => new Charge();
-    #endregion
-
-    #region Debuffs
-    public static Card CreateFreeze()
-        => new Freeze();
-    #endregion
-
-
-    public static Card CreateBlank()
-        => new Card("Blank", RarityType.Common, EffectType.Nothing, ElementType.None, false);
-    #endregion
-
+    #region Decks
     [Serializable]
-    public class LoudoutDeck
+    public class LoadoutDeck
     {
         public string Name;
         public List<Card> Cards;
 
-        public LoudoutDeck(string name, List<Card> cards)
+        public LoadoutDeck(string name, List<Card> cards)
         {
             Name = name;
             Cards = cards;
         }
     }
 
-    public static LoudoutDeck LightningDeck = new LoudoutDeck(
+    public static LoadoutDeck LightningDeck = new LoadoutDeck(
     "Lightning Deck",
     new List<Card>()
     {
-        CreateCharge(),
-        CreateCharge(),
-        CreateCharge(),
-        CreateLightningStrike(),
-        CreateLightningStrike(),
-        CreateLightningStrike(),
+        CardFactory.Create("charge"),
+        CardFactory.Create("charge"),
+        CardFactory.Create("charge"),
+        CardFactory.Create("lightningstrike"),
+        CardFactory.Create("lightningstrike"),
+        CardFactory.Create("lightningstrike"),
     });
 
-    public static LoudoutDeck IceDeck = new LoudoutDeck(
+    public static LoadoutDeck IceDeck = new LoadoutDeck(
         "Ice Deck",
         new List<Card>()
         {
-        CreateFreeze(),
-        CreateFreeze(),
-        CreateFreeze(),
-        CreateIceBolt(),
-        CreateIceBolt(),
-        CreateIceBolt(),
+        CardFactory.Create("freeze"),
+        CardFactory.Create("freeze"),
+        CardFactory.Create("freeze"),
+        CardFactory.Create("icebolt"),
+        CardFactory.Create("icebolt"),
+        CardFactory.Create("icebolt"),
     });
 
-    public static LoudoutDeck FireDeck = new LoudoutDeck(
+    public static LoadoutDeck FireDeck = new LoadoutDeck(
         "Fire Deck",
         new List<Card>()
         {
         
         });
-    public static List<LoudoutDeck> Starting_Decks = new List<LoudoutDeck>()
+    public static List<LoadoutDeck> Starting_Decks = new List<LoadoutDeck>()
     {
     LightningDeck,
     IceDeck,
     FireDeck,
     };
+    #endregion
 }
 
 

@@ -14,7 +14,7 @@ public class CardController : MonoBehaviour
     public List<Card> Hand;
     public int HandSize = 2;
     public List<Card> DiscardPile;
-    public LoudoutDeck SelectedDeck;
+    public LoadoutDeck SelectedDeck;
     
     
     #endregion
