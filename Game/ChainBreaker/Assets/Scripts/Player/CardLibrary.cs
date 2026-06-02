@@ -6,37 +6,6 @@ using UnityEngine;
 
 public static class CardLibrary
 {
-    
-    #region Card creators
-
-    #region Attacks
-    public static Card CreateChainLightning()
-        => new ChainLightning();
-
-    public static Card CreateIceBolt()
-        => new IceBolt();
-
-    public static Card CreateLightningStrike()
-        => new LightningStrike();
-
-    public static Card CreateLightningBolt()
-        => new LightningBolt();
-    #endregion
-
-    #region buffs
-    public static Card CreateCharge()
-        => new Charge();
-    #endregion
-
-    #region Debuffs
-    public static Card CreateFreeze()
-        => new Freeze();
-    #endregion
-
-
-    public static Card CreateBlank()
-        => new Card("Blank", RarityType.Common, EffectType.Nothing, false);
-    #endregion
 
     #region Card Classes
     #region base card class
@@ -50,7 +19,7 @@ public static class CardLibrary
         public bool Crystalizable;
         public bool Played = false;
         public float autoplayTimer = 3f;
-        public Card(string name, RarityType rarity, EffectType type, bool crystalizable)
+        public Card(string name, RarityType rarity, EffectType type, ElementType element, bool crystalizable)
         {
             Name = name;
             Rarity = rarity;
@@ -105,13 +74,21 @@ public static class CardLibrary
         Curse,
         Nothing
     }
+
+    public enum ElementType
+    {
+        Lightning,
+        Ice,
+        Fire,
+        None
+    }
     #endregion
 
     #region Attacks
-//big attack on everything in an area
+    //big attack on everything in an area
     public class LightningBolt : Card
     {
-        public LightningBolt() : base("Lightning Bolt", RarityType.Legendary, EffectType.Damage, false)
+        public LightningBolt() : base("Lightning Bolt", RarityType.Legendary, EffectType.Damage, ElementType.None, false)
         {
 
         }
@@ -121,74 +98,99 @@ public static class CardLibrary
             base.OnPlay();
         }
     }
-//attack that bounces between enemies
+    //attack that bounces between enemies
     public class ChainLightning : Card
     {
-        public ChainLightning() : base("Chain Lightning", RarityType.Rare, EffectType.Damage, false) { }
+        public ChainLightning() : base("Chain Lightning", RarityType.Rare, EffectType.Damage, ElementType.Lightning, false) { }
 
-        public override void OnPlay() 
+        public override void OnPlay()
         {
             base.OnPlay(); ;
         }
     }
-//attack that deals more damage to frozen enemies
+    //attack that deals more damage to frozen enemies
     public class IceBolt : Card
     {
-        public IceBolt() : base("IceBolt", RarityType.Common, EffectType.Damage, false) { }
+        public IceBolt() : base("IceBolt", RarityType.Common, EffectType.Damage, ElementType.Ice, false) { }
 
-        public override void OnPlay() {
+        public override void OnPlay()
+        {
             base.OnPlay();
         }
     }
-//ranged attack
+    //ranged attack
     public class LightningStrike : Card
     {
-        public LightningStrike() : base("Lightning Strike", RarityType.Common, EffectType.Damage, false) { }
+        public LightningStrike() : base("Lightning Strike", RarityType.Common, EffectType.Damage, ElementType.Ice, false) { }
 
-        public override void OnPlay() 
+        public override void OnPlay()
         {
 
             base.OnPlay();
 
 
         }
-        
+
     }
     #endregion
 
     #region Buffs
-//buff that causes the next lightning attack to be stronger
+    //buff that causes the next lightning attack to be stronger
     public class Charge : Card
     {
-            public Charge(): base("Charge", RarityType.Common,
-                       EffectType.Buff, true)
-            {
-            }
+        public Charge() : base("Charge", RarityType.Common,
+                   EffectType.Buff, ElementType.None, true)
+        {
+        }
 
-            public override void OnDraw()
-            {
-                Debug.Log("Charge triggered!");
-            }
-
-           
-
-
-
-
-
+        public override void OnDraw()
+        {
+            Debug.Log("Charge triggered!");
+        }
     }
     #endregion
 
     #region Debuffs
-//applies the frozen debuff to an enemy, causing it to move slower
+    //applies the frozen debuff to an enemy, causing it to move slower
     public class Freeze : Card
     {
-        public Freeze() : base("Freeze", RarityType.Common, EffectType.Debuff, true) { }
+        public Freeze() : base("Freeze", RarityType.Common, EffectType.Debuff, ElementType.None, true) { }
 
-        
     }
     #endregion
     #endregion
+
+    #region Card creators
+
+    #region Attacks
+    public static Card CreateChainLightning()
+        => new ChainLightning();
+
+    public static Card CreateIceBolt()
+        => new IceBolt();
+
+    public static Card CreateLightningStrike()
+        => new LightningStrike();
+
+    public static Card CreateLightningBolt()
+        => new LightningBolt();
+    #endregion
+
+    #region buffs
+    public static Card CreateCharge()
+        => new Charge();
+    #endregion
+
+    #region Debuffs
+    public static Card CreateFreeze()
+        => new Freeze();
+    #endregion
+
+
+    public static Card CreateBlank()
+        => new Card("Blank", RarityType.Common, EffectType.Nothing, ElementType.None, false);
+    #endregion
+
     [Serializable]
     public class LoudoutDeck
     {
@@ -224,13 +226,19 @@ public static class CardLibrary
         CreateIceBolt(),
         CreateIceBolt(),
         CreateIceBolt(),
-        });
+    });
 
+    public static LoudoutDeck FireDeck = new LoudoutDeck(
+        "Fire Deck",
+        new List<Card>()
+        {
+        
+        });
     public static List<LoudoutDeck> Starting_Decks = new List<LoudoutDeck>()
     {
     LightningDeck,
     IceDeck,
-    
+    FireDeck,
     };
 }
 
