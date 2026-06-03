@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CharacterController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     #region Variables
     #region Actions
@@ -68,12 +68,12 @@ public class CharacterController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.linearDamping = 0.5f;
         maxSpeed = new Vector3(Maxspeed, 0, Maxspeed);
-        
+        Cursor.lockState = CursorLockMode.Locked;
     }
        
     void Update()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        
         moveAmt = moveAction.ReadValue<Vector2>();
         lookAmt = lookAction.ReadValue<Vector2>();
         if (dodgeAction.WasPerformedThisFrame()) 

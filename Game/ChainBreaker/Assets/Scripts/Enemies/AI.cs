@@ -7,16 +7,15 @@ using UnityEngine.AI;
 
 public class AI : MonoBehaviour
 {
-    public GameObject Waypoint;
+    //public GameObject Waypoint;
     NavMeshAgent agent;
-    public List<Vector3> waypoints;
-    public int waypointNumber = 0;
-    public float desiredDistance = .5f;
-    public bool chasing = false;
+    //public List<Vector3> waypoints;
+    //public int waypointNumber = 0;
+    public bool chasing = true;
     public GameObject player;
     public float chaseDistance = 5f;
     public float attackDistance = 5f;
-    public bool patrolling = true;
+    public bool patrolling = false;
 
     public float DistanceToPlayer;
     public bool attackReady = true;
@@ -26,8 +25,8 @@ public class AI : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindWithTag("Player");
-        GetWaypoints();
-        SetDestination();
+        //GetWaypoints();
+        //SetDestination();
     }
 
     // Update is called once per frame
@@ -35,21 +34,24 @@ public class AI : MonoBehaviour
     {
         if (player == null)
         {
-            patrolling = true;
-            chasing = false;
+            if (player == null)
+            {
+                player = GameObject.FindWithTag("Player");
+                return;
+            }
         }
         else
         {
             DistanceToPlayer = Vector3.Distance(agent.gameObject.transform.position, player.transform.position);
 
-            if (DistanceToPlayer < chaseDistance)
-            {
-                chasing = true;
-            }
+            //if (DistanceToPlayer < chaseDistance)
+            //{
+            //    chasing = true;
+            //}
             if (chasing)
             {
                 Chase();
-                patrolling = false;
+                //patrolling = false;
             }
             if (DistanceToPlayer < attackDistance && attackReady)
             {
@@ -62,50 +64,50 @@ public class AI : MonoBehaviour
                 agent.isStopped = false;
             }
         }
-        if (patrolling)
-        {
-            if (agent.remainingDistance <= agent.stoppingDistance)
-            {
-                UpdateWaypoint();
-            }
-        }
+    //    if (patrolling)
+    //    {
+    //        if (agent.remainingDistance <= agent.stoppingDistance)
+    //        {
+    //            UpdateWaypoint();
+    //        }
+    //    }
         
-    }
+    //}
 
-    void GetWaypoints()
-    {
-        waypoints = new List<Vector3>();
-        waypoints.Add(Waypoint.transform.position);
-        foreach(Transform child in Waypoint.transform) {waypoints.Add(child.position);}
-    } 
+    //void GetWaypoints()
+    //{
+    //    waypoints = new List<Vector3>();
+    //    waypoints.Add(Waypoint.transform.position);
+    //    foreach(Transform child in Waypoint.transform) {waypoints.Add(child.position);}
+    //} 
 
-    void SetDestination()
-    {
-        agent.destination = waypoints[waypointNumber];
-    }
+    //void SetDestination()
+    //{
+    //    agent.destination = waypoints[waypointNumber];
+    //}
 
-    void UpdateWaypoint()
-    {
+    //void UpdateWaypoint()
+    //{
         
-            waypointNumber++;
-            if (waypointNumber >= waypoints.Count) { waypointNumber = 0; }
-            SetDestination();
+    //        waypointNumber++;
+    //        if (waypointNumber >= waypoints.Count) { waypointNumber = 0; }
+    //        SetDestination();
         
     }
 
     void Chase()
     {
 
-        Vector3 point;
-        point = waypoints[waypointNumber];
+        //Vector3 point;
+        //point = waypoints[waypointNumber];
         agent.destination = player.transform.position;
 
-        if (Vector3.Distance(agent.gameObject.transform.position, player.transform.position) > chaseDistance)
-        {
-            chasing = false;
-            agent.destination = point;
-            patrolling = true;
-        }
+        //if (Vector3.Distance(agent.gameObject.transform.position, player.transform.position) > chaseDistance)
+        //{
+        //    chasing = false;
+        //    agent.destination = point;
+        //    patrolling = true;
+        //}
     }
 
     private IEnumerator Attack()

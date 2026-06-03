@@ -17,10 +17,5 @@ public class TransferSelectedDeck : MonoBehaviour
             .FirstOrDefault(deck => deck.Name == selectedName);
         SceneManager.LoadScene(SceneName);
 
-    }
-
-    public static class GameSession
-    {
-        public static CardLibrary.LoadoutDeck SelectedDeck;
-    }
+    }   
 }

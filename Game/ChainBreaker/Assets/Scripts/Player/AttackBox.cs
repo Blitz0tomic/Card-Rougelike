@@ -19,7 +19,7 @@ public class AttackBox : MonoBehaviour
                 {
                     if (other.name == "Player")
                     {
-                        var target1 = target.GetComponent<CharacterController>();
+                        var target1 = target.GetComponent<PlayerController>();
                         target1.TakeDamage(damage);
                         damaged_Enemies.Add(other.name);
                         Debug.Log($"Hit {other.name} for {damage} damage.");

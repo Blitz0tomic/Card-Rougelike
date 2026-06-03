@@ -18,6 +18,7 @@ public static class CardLibrary
         public EffectType Type;
         public bool Crystalizable;
         public bool Played = false;
+        public bool autoPlayed = false;
         public float autoplayTimer = 3f;
         public ElementType Element;
         public Card(string name, RarityType rarity, EffectType type, ElementType element, bool crystalizable)
@@ -48,7 +49,7 @@ public static class CardLibrary
 
         public virtual void OnDiscard()
         {
-            // Default: no effect
+            
         }
 
         public IEnumerator AutoPlay()
@@ -56,6 +57,7 @@ public static class CardLibrary
             yield return new WaitForSeconds(autoplayTimer);
             if (!Played)
             {
+                autoPlayed = true;
                 OnPlay();
             }
         }
