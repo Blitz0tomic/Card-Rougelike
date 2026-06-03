@@ -24,3 +24,11 @@ public enum ElementType
     Fire,
     None
 }
+
+public enum enemyType
+{
+    Melee,
+    Ranged,
+    Tank,
+    Boss
+}

@@ -34,11 +34,10 @@ public class AI : MonoBehaviour
     {
         if (player == null)
         {
-            if (player == null)
-            {
+            
                 player = GameObject.FindWithTag("Player");
                 return;
-            }
+            
         }
         else
         {
