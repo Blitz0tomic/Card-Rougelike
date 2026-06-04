@@ -175,11 +175,10 @@ public class CharacterController : MonoBehaviour
     #endregion
     private IEnumerator Attack()
     {
-
+        attackReady = false;
         attackBox.SetActive(true);
         yield return new WaitForSeconds(0.1f);
         attackBox.SetActive(false);
-        attackReady = false;
         StartCoroutine(AttackDelay());
     }
 
