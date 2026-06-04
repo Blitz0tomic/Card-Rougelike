@@ -14,7 +14,7 @@ public class CardController : MonoBehaviour
     public List<Card> Hand;
     public int HandSize = 2;
     public List<Card> DiscardPile;
-    public LoudoutDeck SelectedDeck;
+    public LoadoutDeck SelectedDeck;
     
     
     #endregion
@@ -109,19 +109,20 @@ public class CardController : MonoBehaviour
         {
             if (Deck.Count == 0)
             {
-                ReshuffleDiscardIntoDeck();
+               ReshuffleDiscardIntoDeck();
             }
 
-            Card drawn = Deck[0];
-            Hand.Add(drawn);
-            drawn.Played = false;
-            drawn.OnDraw();
-            StartCoroutine(drawn.AutoPlay());
+            Card card = Deck[0];
+            Hand.Add(card);
+            card.Played = false;
+            card.OnDraw();
+            StartCoroutine(card.AutoPlay());
             Deck.RemoveAt(0);
         }
     }
     public void Discard(Card card)
     {
+        StopCoroutine(card.AutoPlay());
         DiscardPile.Add(card);
         card.OnDiscard();
         Hand.Remove(card);

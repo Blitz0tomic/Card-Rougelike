@@ -10,9 +10,9 @@ public class EnemyHealth : MonoBehaviour
     public bool frozen = false;
     public float iceVulnerabilityMultiplier = 1.5f;
 
-    public void TakeDamage(int damage, CardLibrary.ElementType element)
+    public void TakeDamage(int damage, ElementType element)
     {
-        if (element == CardLibrary.ElementType.Ice && frozen)
+        if (element == ElementType.Ice && frozen)
             damage = Mathf.RoundToInt(damage * iceVulnerabilityMultiplier);
         health -= damage;
         if (health <= 0) Die();
