@@ -25,7 +25,12 @@ public enum ElementType
     None
 }
 
+<<<<<<< Updated upstream
 public enum enemyType
+=======
+
+public enum EnemyType
+>>>>>>> Stashed changes
 {
     Melee,
     Ranged,

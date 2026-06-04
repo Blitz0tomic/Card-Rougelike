@@ -136,8 +136,8 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (PrevAction.WasPerformedThisFrame()) 
-        { 
+        if (PrevAction.WasPerformedThisFrame())
+        {
             SelectedCard -= 1;
             if (SelectedCard < 0)
             {
@@ -145,7 +145,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (PlayCardAction.WasPerformedThisFrame())
+        if (PlayCardAction.WasPerformedThisFrame() && controller.Hand.Count > 0)
         {
             controller.Hand[SelectedCard].OnPlay();
         }
@@ -175,11 +175,10 @@ public class PlayerController : MonoBehaviour
     #endregion
     private IEnumerator Attack()
     {
-
+        attackReady = false;
         attackBox.SetActive(true);
         yield return new WaitForSeconds(0.1f);
         attackBox.SetActive(false);
-        attackReady = false;
         StartCoroutine(AttackDelay());
     }
 

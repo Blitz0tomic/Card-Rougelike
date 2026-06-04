@@ -6,16 +6,20 @@ using UnityEngine.SceneManagement;
 
 public class TransferSelectedDeck : MonoBehaviour
 {
-    
-    
-    public void TransferDeck(string SceneName) 
+
+
+    public void TransferDeck(string SceneName)
     {
-        
+
         string selectedName = gameObject.GetComponentInChildren<TMP_Text>().text;
 
         GameSession.SelectedDeck = CardLibrary.Starting_Decks
             .FirstOrDefault(deck => deck.Name == selectedName);
         SceneManager.LoadScene(SceneName);
 
+<<<<<<< Updated upstream
     }   
+=======
+    }
+>>>>>>> Stashed changes
 }

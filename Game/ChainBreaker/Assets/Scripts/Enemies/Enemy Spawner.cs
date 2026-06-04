@@ -29,8 +29,11 @@ public class EnemySpawner : MonoBehaviour
     {
         spawnable = false;
         GameObject clone = Instantiate(enemy);
+<<<<<<< Updated upstream
         //waypoints = GameObject.FindGameObjectWithTag("WaypointParent");
         //clone.GetComponent<AI>().Waypoint = waypoints;
+=======
+>>>>>>> Stashed changes
         yield return new WaitForSecondsRealtime(10f);
         spawnable = true;
     }
