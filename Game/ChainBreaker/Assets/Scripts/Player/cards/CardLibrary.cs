@@ -16,7 +16,6 @@ public static class CardLibrary
         public string Name;
         public RarityType Rarity;
         public EffectType Type;
-        public ElementType Element;
         public bool Crystalizable;
         public bool Played = false;
         public bool autoPlayed = false;

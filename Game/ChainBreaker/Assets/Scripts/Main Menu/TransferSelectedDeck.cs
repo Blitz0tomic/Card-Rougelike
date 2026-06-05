@@ -17,9 +17,5 @@ public class TransferSelectedDeck : MonoBehaviour
             .FirstOrDefault(deck => deck.Name == selectedName);
         SceneManager.LoadScene(SceneName);
 
-<<<<<<< Updated upstream
-    }   
-=======
     }
->>>>>>> Stashed changes
 }

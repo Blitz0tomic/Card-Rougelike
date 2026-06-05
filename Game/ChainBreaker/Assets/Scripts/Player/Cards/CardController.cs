@@ -122,15 +122,8 @@ public class CardController : MonoBehaviour
     }
     public void Discard(Card card)
     {
-<<<<<<<< Updated upstream:Game/ChainBreaker/Assets/Scripts/Player/cards/CardController.cs
-        StopCoroutine(card.AutoPlay());
-========
-<<<<<<<< HEAD:Game/ChainBreaker/Assets/Scripts/Player/Cards/CardController.cs
         card.Played = true;
-========
-        StopCoroutine(card.AutoPlay());
->>>>>>>> db454a3a36a4b573b99c832cb7d33290e00efaa8:Game/ChainBreaker/Assets/Scripts/Player/cards/CardController.cs
->>>>>>>> Stashed changes:Game/ChainBreaker/Assets/Scripts/Player/Cards/CardController.cs
+
         DiscardPile.Add(card);
         card.OnDiscard();
         Hand.Remove(card);
