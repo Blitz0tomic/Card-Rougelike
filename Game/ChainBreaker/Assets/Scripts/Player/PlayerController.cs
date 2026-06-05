@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
     private InputAction moveAction;
     private InputAction lookAction;
     private InputAction jumpAction;
-    private InputAction dodgeAction;
     private InputAction attackAction;
     private InputAction interactAction;
     private InputAction sprintAction;
@@ -26,10 +25,7 @@ public class PlayerController : MonoBehaviour
     public int health;
     public int armor = 0;
 
-    bool invincible = false;
-    public float invincTime;
-
-    public bool sprinting = false;
+        public bool sprinting = false;
 
     public Rigidbody rb;
     public float jumpForce;
@@ -54,7 +50,6 @@ public class PlayerController : MonoBehaviour
     #endregion
     private void Awake()
     {
-        dodgeAction = InputSystem.actions.FindAction("Dodge");
         moveAction = InputSystem.actions.FindAction("Move");
         lookAction = InputSystem.actions.FindAction("Look");
         jumpAction = InputSystem.actions.FindAction("Jump");
@@ -76,11 +71,7 @@ public class PlayerController : MonoBehaviour
         
         moveAmt = moveAction.ReadValue<Vector2>();
         lookAmt = lookAction.ReadValue<Vector2>();
-        if (dodgeAction.WasPerformedThisFrame()) 
-        {
-            Debug.Log("Dodging");
-            IFrame(invincTime);
-        }
+        
         
         if (attackAction.WasPerformedThisFrame() && attackReady) 
         {
@@ -155,24 +146,7 @@ public class PlayerController : MonoBehaviour
         Walking();
         Rotating();
     }
-    #region invincible
-    public void IFrame(float invincTime)
-    {
-        if (!invincible)
-        {
-            StartCoroutine(IFrames(invincTime));
-        }
-    }
-
-    private IEnumerator IFrames(float invincTime)
-    {
-        invincible = true;
-        Debug.Log("Invincible");
-        yield return new WaitForSeconds(invincTime);
-        Debug.Log("Not invincible");
-        invincible = false;
-    }
-    #endregion
+    
     private IEnumerator Attack()
     {
         attackReady = false;
@@ -189,14 +163,13 @@ public class PlayerController : MonoBehaviour
     }
     public void TakeDamage(int incomingDamage) 
     {
-        if (!invincible)
-        {
+               
             incomingDamage -= armor;
             if (incomingDamage > 0)
             {
                 health -= (incomingDamage);
             }
-        }
+        
         if (health <= 0)
         {
             Die();
