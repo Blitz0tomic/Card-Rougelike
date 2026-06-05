@@ -28,7 +28,6 @@ public static class CardLibrary
             Type = type;
             Element = element;
             Crystalizable = crystalizable;
-            Element = element;
         }
 
         public virtual void findController()
