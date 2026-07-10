@@ -1,7 +1,7 @@
-using NUnit.Framework;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public static class CardLibrary
@@ -12,7 +12,8 @@ public static class CardLibrary
     [Serializable]
     public class Card
     {
-        public CardController controller;
+        public CardController cardController;
+        public PlayerController playerController;
         public string Name;
         public RarityType Rarity;
         public EffectType Type;
@@ -30,9 +31,10 @@ public static class CardLibrary
             Crystalizable = crystalizable;
         }
 
-        public virtual void findController()
+        public virtual void findControllers()
         {
-            controller = GameObject.FindWithTag("Player").GetComponent<CardController>();
+            cardController = GameObject.FindWithTag("Player").GetComponent<CardController>();
+            playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         }
 
         public virtual void OnDraw()
@@ -43,13 +45,17 @@ public static class CardLibrary
         public virtual void OnPlay()
         {
             Played = true;
-            controller.DiscardPile.Add(this);
-            controller.Hand.Remove(this);
+            cardController.DiscardPile.Add(this);
+            cardController.Hand.Remove(this);
+            if (playerController.SelectedCard == cardController.Hand.Count)
+            {
+                playerController.SelectedCard = cardController.Hand.Count - 1;
+            }
         }
 
         public virtual void OnDiscard()
         {
-            
+
         }
 
         public IEnumerator AutoPlay()
@@ -62,17 +68,14 @@ public static class CardLibrary
             }
         }
     }
-    
+
     #endregion
 
     #region Attacks
     //big attack on everything in an area
     public class LightningBolt : Card
     {
-        public LightningBolt() : base("Lightning Bolt", RarityType.Legendary, EffectType.Damage, ElementType.None, false)
-        {
-
-        }
+        public LightningBolt() : base("Lightning Bolt", RarityType.Legendary, EffectType.Damage, ElementType.None, false) { }
 
         public override void OnPlay()
         {
@@ -119,10 +122,7 @@ public static class CardLibrary
     //buff that causes the next lightning attack to be stronger
     public class Charge : Card
     {
-        public Charge() : base("Charge", RarityType.Common,
-                   EffectType.Buff, ElementType.None, true)
-        {
-        }
+        public Charge() : base("Charge", RarityType.Common, EffectType.Buff, ElementType.None, true) { }
 
         public override void OnDraw()
         {
@@ -139,18 +139,25 @@ public static class CardLibrary
 
     }
     #endregion
+
+    #region Curses
+    public class Blank : Card
+    {
+        public Blank() : base("Blank", RarityType.Common, EffectType.Nothing, ElementType.None, false) { }
+    }
+    #endregion
     #endregion
 
-    
+
 
     #region Decks
     [Serializable]
     public class LoadoutDeck
     {
         public string Name;
-        public List<Card> Cards;
+        public List<string> Cards;
 
-        public LoadoutDeck(string name, List<Card> cards)
+        public LoadoutDeck(string name, List<string> cards)
         {
             Name = name;
             Cards = cards;
@@ -159,35 +166,38 @@ public static class CardLibrary
 
     public static LoadoutDeck LightningDeck = new LoadoutDeck(
     "Lightning Deck",
-    new List<Card>()
-    {
-        CardFactory.Create("charge"),
-        CardFactory.Create("charge"),
-        CardFactory.Create("charge"),
-        CardFactory.Create("lightningstrike"),
-        CardFactory.Create("lightningstrike"),
-        CardFactory.Create("lightningstrike"),
-    });
+    new List<string>()
+    { 
+        "charge",
+        "charge",
+        "charge",
+        "lightningstrike",
+        "lightningstrike",
+        "lightningstrike",
+     }
+   );
 
-    public static LoadoutDeck IceDeck = new LoadoutDeck(
+
+public static LoadoutDeck IceDeck = new LoadoutDeck(
         "Ice Deck",
-        new List<Card>()
+        new List<string>()
         {
-        CardFactory.Create("freeze"),
-        CardFactory.Create("freeze"),
-        CardFactory.Create("freeze"),
-        CardFactory.Create("icebolt"),
-        CardFactory.Create("icebolt"),
-        CardFactory.Create("icebolt"),
-    });
+            "freeze",
+            "freeze",
+            "freeze",
+            "icebolt",
+            "icebolt",
+            "icebolt",
+        }
+    );
 
-    public static LoadoutDeck FireDeck = new LoadoutDeck(
-        "Fire Deck",
-        new List<Card>()
-        {
-        
-        });
-    public static List<LoadoutDeck> Starting_Decks = new List<LoadoutDeck>()
+public static LoadoutDeck FireDeck = new LoadoutDeck(
+    "Fire Deck",
+    new List<string>()
+    {
+
+    });
+public static List<LoadoutDeck> Starting_Decks = new List<LoadoutDeck>()
     {
     LightningDeck,
     IceDeck,

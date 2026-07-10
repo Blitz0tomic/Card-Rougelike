@@ -22,27 +22,29 @@ public class CardController : MonoBehaviour
     void Start()
     {
         SelectedDeck = GameSession.SelectedDeck;
+        DiscardPile = new List<Card>();
+        BaseDeck = new List<Card>();
+        Hand = new List<Card>();
         if (SelectedDeck == null)
         {
             Debug.Log("SelectedDeck Null");
             SelectedDeck = Starting_Decks[0];
         }
-        BaseDeck = new List<Card>();
-        foreach (Card c in SelectedDeck.Cards)
+        foreach (string c in SelectedDeck.Cards)
         {
-            BaseDeck.Add(c);
-            c.findController();
+            Card temp = CardFactory.Create(c);
+            BaseDeck.Add(temp);
+            temp.findControllers();
         }
         Deck = BuildDeck();
         Debug.Log("Deck has " + Deck.Count + " Cards.");
         ShuffleDeck();
-        Hand = new List<Card>();
         Draw(HandSize);
         foreach (Card c in Hand)
         {
             Debug.Log(c.Name);
         }
-        DiscardPile = new List<Card>();
+        
     }
 
     void Update()
