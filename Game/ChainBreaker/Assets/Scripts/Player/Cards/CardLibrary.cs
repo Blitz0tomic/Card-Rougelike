@@ -71,53 +71,6 @@ public static class CardLibrary
 
     #endregion
 
-    #region Attacks
-    //big attack on everything in an area
-    public class LightningBolt : Card
-    {
-        public LightningBolt() : base("Lightning Bolt", RarityType.Legendary, EffectType.Damage, ElementType.None, false) { }
-
-        public override void OnPlay()
-        {
-            base.OnPlay();
-        }
-    }
-    //attack that bounces between enemies
-    public class ChainLightning : Card
-    {
-        public ChainLightning() : base("Chain Lightning", RarityType.Rare, EffectType.Damage, ElementType.Lightning, false) { }
-
-        public override void OnPlay()
-        {
-            base.OnPlay();
-        }
-    }
-    //attack that deals more damage to frozen enemies
-    public class IceBolt : Card
-    {
-        public IceBolt() : base("IceBolt", RarityType.Common, EffectType.Damage, ElementType.Ice, false) { }
-
-        public override void OnPlay()
-        {
-            base.OnPlay();
-        }
-    }
-    //ranged attack
-    public class LightningStrike : Card
-    {
-        public LightningStrike() : base("Lightning Strike", RarityType.Common, EffectType.Damage, ElementType.Lightning, false) { }
-
-        public override void OnPlay()
-        {
-
-            base.OnPlay();
-
-
-        }
-
-    }
-    #endregion
-
     #region Buffs
     //buff that causes the next lightning attack to be stronger
     public class Charge : Card
