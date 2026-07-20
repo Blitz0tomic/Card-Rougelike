@@ -7,7 +7,6 @@ using UnityEngine;
 public static class CardLibrary
 {
 
-    #region Card Classes
     #region base card class
     [Serializable]
     public class Card
@@ -70,38 +69,6 @@ public static class CardLibrary
     }
 
     #endregion
-
-    #region Buffs
-    //buff that causes the next lightning attack to be stronger
-    public class Charge : Card
-    {
-        public Charge() : base("Charge", RarityType.Common, EffectType.Buff, ElementType.None, true) { }
-
-        public override void OnDraw()
-        {
-            Debug.Log("Charge triggered!");
-        }
-    }
-    #endregion
-
-    #region Debuffs
-    //applies the frozen debuff to an enemy, causing it to move slower
-    public class Freeze : Card
-    {
-        public Freeze() : base("Freeze", RarityType.Common, EffectType.Debuff, ElementType.None, true) { }
-
-    }
-    #endregion
-
-    #region Curses
-    public class Blank : Card
-    {
-        public Blank() : base("Blank", RarityType.Common, EffectType.Nothing, ElementType.None, false) { }
-    }
-    #endregion
-    #endregion
-
-
 
     #region Decks
     [Serializable]
