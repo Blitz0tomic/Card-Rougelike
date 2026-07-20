@@ -19,15 +19,16 @@ public static class CardLibrary
         public bool Crystalizable;
         public bool Played = false;
         public bool autoPlayed = false;
-        public float autoplayTimer = 3f;
+        public float autoplayTimer;
         public ElementType Element;
-        public Card(string name, RarityType rarity, EffectType type, ElementType element, bool crystalizable)
+        public Card(string name, RarityType rarity, EffectType type, ElementType element, float AutoplayTimer,bool crystalizable)
         {
             Name = name;
             Rarity = rarity;
             Type = type;
             Element = element;
             Crystalizable = crystalizable;
+            autoplayTimer = AutoplayTimer;
         }
 
         public virtual void findControllers()
