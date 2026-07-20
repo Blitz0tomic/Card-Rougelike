@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using JetBrains.Annotations;
 
 public class PlayerController : MonoBehaviour
 {
@@ -44,9 +45,13 @@ public class PlayerController : MonoBehaviour
     public Vector3 maxSpeed;
     public GameObject attackBox;
 
-    public int SelectedCard = 0;
+    //public int SelectedCard = 0;
 
     bool attackReady = true;
+
+    public float baseLightningAttackMultiplier = 1f;
+
+    public float lightningAttackMultiplier;
     #endregion
     private void Awake()
     {
@@ -64,9 +69,12 @@ public class PlayerController : MonoBehaviour
         rb.linearDamping = 0.5f;
         maxSpeed = new Vector3(Maxspeed, 0, Maxspeed);
         Cursor.lockState = CursorLockMode.Locked;
-    }
-       
-    void Update()
+        lightningAttackMultiplier = baseLightningAttackMultiplier;
+    } 
+    
+    
+
+void Update()
     {
         
         moveAmt = moveAction.ReadValue<Vector2>();
@@ -118,28 +126,28 @@ public class PlayerController : MonoBehaviour
             
         }
 
-        if (NextAction.WasPerformedThisFrame())
-        {
-            SelectedCard += 1;
-            if (SelectedCard >= controller.Hand.Count)
-            {
-                SelectedCard = 0;
-            }
-        }
+        //if (NextAction.WasPerformedThisFrame())
+        //{
+        //    SelectedCard += 1;
+        //    if (SelectedCard >= controller.Hand.Count)
+        //    {
+        //        SelectedCard = 0;
+        //    }
+        //}
 
-        if (PrevAction.WasPerformedThisFrame())
-        {
-            SelectedCard -= 1;
-            if (SelectedCard < 0)
-            {
-                SelectedCard = controller.Hand.Count - 1;
-            }
-        }
+        //if (PrevAction.WasPerformedThisFrame())
+        //{
+        //    SelectedCard -= 1;
+        //    if (SelectedCard < 0)
+        //    {
+        //        SelectedCard = controller.Hand.Count - 1;
+        //    }
+        //}
 
-        if (PlayCardAction.WasPerformedThisFrame() && controller.Hand.Count > 0)
-        {
-            controller.Hand[SelectedCard].OnPlay();
-        }
+        //if (PlayCardAction.WasPerformedThisFrame() && controller.Hand.Count > 0)
+        //{
+        //    controller.Hand[SelectedCard].OnPlay();
+        //}
     }
     private void FixedUpdate()
     {

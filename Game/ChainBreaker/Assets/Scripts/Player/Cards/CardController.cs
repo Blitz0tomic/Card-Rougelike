@@ -57,9 +57,11 @@ public class CardController : MonoBehaviour
 
 
     #region BaseDeck Manipulation
-    public void AddCardToBaseDeck(Card Card)
+    public void AddCardToBaseDeck(string Card)
     {
-        BaseDeck.Add(Card);
+        Card temp = CardFactory.Create(Card);
+        temp.findControllers();
+        BaseDeck.Add(temp);
     }
 
     public void RemoveCardFromBaseDeck(Card Card)
@@ -75,9 +77,11 @@ public class CardController : MonoBehaviour
 
         return Deck;
     }
-    public void AddCardToDeck(Card Card)
+    public void AddCardToDeck(string Card)
     {
-        Deck.Add(Card);
+        Card temp = CardFactory.Create(Card);
+        temp.findControllers();
+        Deck.Add(temp);
     }
 
     public void RemoveCardFromDeck(Card Card)

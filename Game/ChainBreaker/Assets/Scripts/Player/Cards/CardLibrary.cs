@@ -46,10 +46,10 @@ public static class CardLibrary
             Played = true;
             cardController.DiscardPile.Add(this);
             cardController.Hand.Remove(this);
-            if (playerController.SelectedCard == cardController.Hand.Count)
-            {
-                playerController.SelectedCard = cardController.Hand.Count - 1;
-            }
+            //if (playerController.SelectedCard == cardController.Hand.Count)
+            //{
+            //    playerController.SelectedCard = cardController.Hand.Count - 1;
+            //}
         }
 
         public virtual void OnDiscard()
