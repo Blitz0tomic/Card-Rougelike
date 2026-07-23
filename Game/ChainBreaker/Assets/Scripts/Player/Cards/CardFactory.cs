@@ -7,7 +7,7 @@ public static class CardFactory
 {
     private static Dictionary<string, Func<Card>> cards =
         new Dictionary<string, Func<Card>>()
-    {
+        {
         {"charge", () => new Charge() },
         {"freeze", () => new Freeze() },
         {"icebolt", () => new IceBolt() },
@@ -15,7 +15,7 @@ public static class CardFactory
         {"chainlightning", () => new ChainLightning() },
         {"lightningbolt", () => new LightningBolt() },
         {"blank", () => new Blank() }
-    };
+        };
 
     public static Card Create(string id)
     {

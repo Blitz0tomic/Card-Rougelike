@@ -12,5 +12,10 @@ public class Charge : Card
         playerController.lightningAttackMultiplier *= 1.5f;
     }
 
+    public override void OnCrystalize()
+    {
+        Debug.Log("Charge Crysalized");
+    }
+
    
 }

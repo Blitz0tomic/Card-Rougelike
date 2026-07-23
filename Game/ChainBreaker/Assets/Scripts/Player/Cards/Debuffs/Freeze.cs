@@ -6,4 +6,8 @@ public class Freeze : Card
 {
     public Freeze() : base("Freeze", RarityType.Common, EffectType.Debuff, ElementType.None, 3.5f, true) { }
 
+    public override void OnCrystalize()
+    {
+        Debug.Log("Charge Crysalized");
+    }
 }

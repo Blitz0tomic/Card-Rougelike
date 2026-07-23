@@ -58,6 +58,11 @@ public static class CardLibrary
 
         }
 
+        public virtual void OnCrystalize()
+        {
+            // Default: no effect
+        }
+
         public IEnumerator AutoPlay()
         {
             yield return new WaitForSeconds(autoplayTimer);
