@@ -149,7 +149,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   enemy: {fileID: 8360366163495781922, guid: da291b8002fe4aa4a9e45a89872e0aaf, type: 3}
-  waypoints: {fileID: 0}
 --- !u!4 &131448711
 Transform:
   m_ObjectHideFlags: 0
@@ -857,11 +856,12 @@ GameObject:
   - component: {fileID: 1594140717}
   - component: {fileID: 1594140716}
   - component: {fileID: 1594140715}
-  - component: {fileID: 1594140712}
   - component: {fileID: 1594140714}
   - component: {fileID: 1594140713}
   - component: {fileID: 1594140720}
+  - component: {fileID: 1594140712}
   - component: {fileID: 1594140721}
+  - component: {fileID: 1594140722}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -885,7 +885,6 @@ MonoBehaviour:
   controller: {fileID: 1594140721}
   health: 100
   armor: 5
-  invincTime: 0.5
   sprinting: 0
   rb: {fileID: 1594140713}
   jumpForce: 5
@@ -897,7 +896,8 @@ MonoBehaviour:
   Maxspeed: 10
   maxSpeed: {x: 0, y: 0, z: 0}
   attackBox: {fileID: 1585027623}
-  SelectedCard: 0
+  baseLightningAttackMultiplier: 1
+  lightningAttackMultiplier: 0
 --- !u!54 &1594140713
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1058,6 +1058,19 @@ MonoBehaviour:
   SelectedDeck:
     Name: 
     Cards: []
+--- !u!114 &1594140722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594140711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b84d9202138b774cb5d3912445ffb76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PassiveEffects
+  Crystalized: []
 --- !u!1 &1657395052
 GameObject:
   m_ObjectHideFlags: 0

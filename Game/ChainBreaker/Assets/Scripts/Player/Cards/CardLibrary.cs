@@ -13,6 +13,7 @@ public static class CardLibrary
     {
         public CardController cardController;
         public PlayerController playerController;
+        public PassiveEffects passiveEffects;
         public string Name;
         public RarityType Rarity;
         public EffectType Type;
@@ -35,6 +36,7 @@ public static class CardLibrary
         {
             cardController = GameObject.FindWithTag("Player").GetComponent<CardController>();
             playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+            passiveEffects = GameObject.FindWithTag("Player").GetComponent<PassiveEffects>();
         }
 
         public virtual void OnDraw()
@@ -60,7 +62,8 @@ public static class CardLibrary
 
         public virtual void Crystalize()
         {
-            // Default: no effect
+            cardController.BaseDeck.Remove(this);
+            passiveEffects.Crystalized.Add(this);
         }
 
         public IEnumerator AutoPlay()
