@@ -58,7 +58,7 @@ public static class CardLibrary
 
         }
 
-        public virtual void OnCrystalize()
+        public virtual void Crystalize()
         {
             // Default: no effect
         }
