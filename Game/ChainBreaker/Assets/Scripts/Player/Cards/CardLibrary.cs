@@ -41,14 +41,17 @@ public static class CardLibrary
 
         public virtual void OnDraw()
         {
-            // Default: no effect
+            autoPlayed = false;
+            Played = false;
         }
 
         public virtual void OnPlay()
         {
             Played = true;
+            Debug.Log("Played card " + Name);
             cardController.DiscardPile.Add(this);
             cardController.Hand.Remove(this);
+            cardController.Draw(1);
             //if (playerController.SelectedCard == cardController.Hand.Count)
             //{
             //    playerController.SelectedCard = cardController.Hand.Count - 1;

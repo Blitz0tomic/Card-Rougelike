@@ -8,6 +8,7 @@ public class Charge : Card
 
     public override void OnDraw()
     {
+        base.OnDraw();
         Debug.Log("Charge triggered!");
         playerController.lightningAttackMultiplier *= 1.5f;
     }
