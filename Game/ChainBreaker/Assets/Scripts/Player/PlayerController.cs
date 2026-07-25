@@ -52,6 +52,9 @@ public class PlayerController : MonoBehaviour
     public float baseLightningAttackMultiplier = 1f;
 
     public float lightningAttackMultiplier;
+
+
+    public ProjectileSpawner projectile;
     #endregion
     private void Awake()
     {
@@ -84,6 +87,7 @@ void Update()
         if (attackAction.WasPerformedThisFrame() && attackReady) 
         {
             StartCoroutine(Attack());
+            projectile.Spawn();
             Debug.Log("Attack"); 
         }
         if (interactAction.WasPerformedThisFrame()) 
