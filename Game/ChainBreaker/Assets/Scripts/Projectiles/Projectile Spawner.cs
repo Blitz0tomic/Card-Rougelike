@@ -13,8 +13,9 @@ public class ProjectileSpawner : MonoBehaviour
         clone.SetActive(true);
         clone.transform.position = Projectile.transform.position;
         clone.transform.rotation = Projectile.transform.rotation;
+        clone.transform.SetParent(Projectile.transform.parent);
         body = clone.GetComponent<Rigidbody>();
-        
+        body.AddForce(clone.transform.up * 10f, ForceMode.Impulse);
     }
 
     

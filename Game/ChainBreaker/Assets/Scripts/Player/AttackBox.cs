@@ -17,7 +17,7 @@ public class AttackBox : MonoBehaviour
             {
                 if (!damaged_Enemies.Contains(other.name))
                 {
-                    if (other.name == "Player")
+                    if (other.tag == "Player")
                     {
                         var target1 = target.GetComponent<PlayerController>();
                         target1.TakeDamage(damage);

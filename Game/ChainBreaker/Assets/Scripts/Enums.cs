@@ -19,10 +19,10 @@ public enum EffectType
 
 public enum ElementType
 {
+    None,
     Lightning,
     Ice,
     Fire,
-    None
 }
 
 public enum EnemyType
