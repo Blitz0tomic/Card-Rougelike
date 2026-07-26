@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using UnityEngine;
 
-public class Projectiles : MonoBehaviour
+public class ProjectileData : MonoBehaviour
 {
-    public int damage = 10;
+    public int Damage;
     public ElementType elementType;
 
     private void OnCollisionEnter(Collision collision)
@@ -15,9 +15,15 @@ public class Projectiles : MonoBehaviour
             if (target != null)
             {                
                 var target1 = target.GetComponent<EnemyHealth>();
-                target1.TakeDamage(damage, elementType);
-                Debug.Log($"Hit {collision.gameObject.name} for {damage} damage.");   
+                target1.TakeDamage(Damage, elementType);
+                Debug.Log($"Hit {collision.gameObject.name} for {Damage} damage.");
+                Destroy(gameObject);
             }
+        }
+        else 
+        { 
+            Debug.Log($"Hit {collision.gameObject.name}");
+            Destroy(gameObject);
         }
     }
 }

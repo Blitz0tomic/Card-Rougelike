@@ -87,7 +87,7 @@ void Update()
         if (attackAction.WasPerformedThisFrame() && attackReady) 
         {
             StartCoroutine(Attack());
-            projectile.Spawn();
+            projectile.Spawn(5, ElementType.None);
             Debug.Log("Attack"); 
         }
         if (interactAction.WasPerformedThisFrame()) 
