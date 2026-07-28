@@ -20,9 +20,19 @@ public class ProjectileData : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        else if (collision.gameObject.CompareTag("Player"))
+        {
+            var target = collision.gameObject;
+            if (target != null)
+            {
+                var target1 = target.GetComponent<PlayerController>();
+                target1.TakeDamage(Damage);
+                Debug.Log($"Hit {collision.gameObject.name} for {Damage} damage.");
+                Destroy(gameObject);
+            }
+        }
         else 
         { 
-            Debug.Log($"Hit {collision.gameObject.name}");
             Destroy(gameObject);
         }
     }

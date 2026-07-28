@@ -1,23 +1,19 @@
-
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class AI : MonoBehaviour
 {
-
     NavMeshAgent agent;
     
-
-
     public bool chasing = true;
     public GameObject player;
     public float attackDistance = 5f;
-
-
     public float DistanceToPlayer;
     public bool attackReady = true;
     public GameObject attackBox;
+    public ProjectileSpawner spawner;
+    public int projectileDamage;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -57,10 +53,13 @@ public class AI : MonoBehaviour
 
     private IEnumerator Attack()
     {
-        attackReady = false;
-        attackBox.SetActive(true);
-        yield return new WaitForSeconds(0.1f);
-        attackBox.SetActive(false);
+        
+            attackReady = false;
+            attackBox.SetActive(true);
+            yield return new WaitForSeconds(0.1f);
+            attackBox.SetActive(false);
+            
+        
         StartCoroutine(AttackDelay());
     }
     private IEnumerator AttackDelay()
