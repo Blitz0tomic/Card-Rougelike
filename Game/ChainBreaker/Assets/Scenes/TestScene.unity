@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abc39c1ac27bb5d4d98a782961690f07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
-  enemy: {fileID: 8360366163495781922, guid: da291b8002fe4aa4a9e45a89872e0aaf, type: 3}
+  enemy: {fileID: 2517661578625457556, guid: 8962f05d8740b00468f8de68bafbe772, type: 3}
 --- !u!4 &131448711
 Transform:
   m_ObjectHideFlags: 0
