@@ -4,8 +4,6 @@ using UnityEngine.AI;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public AI ai;
-    
     public int health = 100;
     public bool frozen = false;
     public float iceVulnerabilityMultiplier = 1.5f;
