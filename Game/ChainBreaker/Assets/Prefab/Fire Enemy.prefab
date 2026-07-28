@@ -322,9 +322,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b4e209200e5bf4f9670bc54cf1d3b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AI
+  agent: {fileID: 0}
   chasing: 0
   player: {fileID: 0}
   attackDistance: 2.5
   DistanceToPlayer: 0
   attackReady: 1
   attackBox: {fileID: 291350159050373865}
+  spawner: {fileID: 0}
+  projectileDamage: 0
+  Lightning: 0
+  Ice: 0
+  Fire: 1
+  NoElement: 0

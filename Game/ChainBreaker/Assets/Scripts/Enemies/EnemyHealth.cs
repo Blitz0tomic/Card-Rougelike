@@ -8,6 +8,13 @@ public class EnemyHealth : MonoBehaviour
     public bool frozen = false;
     public float iceVulnerabilityMultiplier = 1.5f;
 
+    public NavMeshAgent agent;
+
+    public void Start()
+    {
+        agent = gameObject.GetComponent<NavMeshAgent>();
+    }
+
     public void TakeDamage(int damage, ElementType element)
     {
         if (element == ElementType.Ice && frozen)
@@ -19,10 +26,10 @@ public class EnemyHealth : MonoBehaviour
     public IEnumerator ApplyFreeze(float duration)
     {
         frozen = true;
-        GetComponent<NavMeshAgent>().speed /= 2f;
+        agent.speed /= 2f;
         yield return new WaitForSeconds(duration);
         frozen = false;
-        GetComponent<NavMeshAgent>().speed *= 2f;
+        agent.speed *= 2f;
     }
 
     private void Die()

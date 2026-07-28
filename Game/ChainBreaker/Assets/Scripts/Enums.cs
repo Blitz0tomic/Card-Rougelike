@@ -24,11 +24,3 @@ public enum ElementType
     Ice,
     Fire,
 }
-
-public enum EnemyType
-{
-    Melee,
-    Ranged,
-    Tank,
-    Boss
-}
