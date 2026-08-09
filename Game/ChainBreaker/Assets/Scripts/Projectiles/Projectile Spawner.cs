@@ -7,8 +7,9 @@ public class ProjectileSpawner : MonoBehaviour
      public GameObject Projectile;
      public ProjectileData projectileData;
      private Rigidbody body = null;
-    public void Spawn(int Damage, ElementType elementType)
+    public void Spawn(int Damage, ElementType elementType, float speed)
     {
+        //create projectile
         GameObject clone = Instantiate(Projectile);
         clone.SetActive(true);
         Debug.Log("Projectile Spawned");
@@ -16,11 +17,13 @@ public class ProjectileSpawner : MonoBehaviour
         clone.transform.position = Projectile.transform.position;
         clone.transform.rotation = Projectile.transform.rotation;
         clone.transform.SetParent(Projectile.transform.parent);
+        //assign the correct data to the projectile
         projectileData = clone.GetComponent<ProjectileData>();
         projectileData.Damage = Damage;
         projectileData.elementType = elementType;
+        //move projectile
         body = clone.GetComponent<Rigidbody>();
-        body.AddForce(clone.transform.up * 10f, ForceMode.Impulse);
+        body.AddForce(clone.transform.up * speed, ForceMode.Impulse);
     }
 
     

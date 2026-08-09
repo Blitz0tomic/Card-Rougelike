@@ -20,10 +20,11 @@ public class NoElementAI : MonoBehaviour
     }
     // Update is called once per frame
     void Update()
-    {          
+    {       //track distance to player and chase them   
             DistanceToPlayer = Vector3.Distance(agent.gameObject.transform.position, player.transform.position);
             agent.destination = player.transform.position;
 
+            //stop and attack if within range and not on cooldown
             if (DistanceToPlayer < attackDistance && attackReady)
             {
                 agent.isStopped = true;
@@ -38,6 +39,7 @@ public class NoElementAI : MonoBehaviour
 
     private IEnumerator Attack()
     {
+        //enable attackBox briefly to deal damage, then start cooldown
         attackReady = false;
         attackBox.SetActive(true);
         yield return new WaitForSeconds(0.1f);

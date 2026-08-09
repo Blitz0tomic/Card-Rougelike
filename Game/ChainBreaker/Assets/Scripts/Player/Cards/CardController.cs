@@ -18,6 +18,7 @@ public class CardController : MonoBehaviour
     
     void Start()
     {
+        //initialize collections and fall back to a default loadout if none selected
         SelectedDeck = GameSession.SelectedDeck;
         DiscardPile = new List<Card>();
         BaseDeck = new List<Card>();
@@ -27,12 +28,16 @@ public class CardController : MonoBehaviour
             Debug.Log("SelectedDeck Null");
             SelectedDeck = Starting_Decks[0];
         }
+
+        //build the base deck from the selected loadout's card names
         foreach (string c in SelectedDeck.Cards)
         {
             Card temp = CardFactory.Create(c);
             BaseDeck.Add(temp);
             temp.findControllers();
         }
+
+        //build the runtime deck, shuffle it, and draw the starting hand
         Deck = BuildDeck();
         Debug.Log("Deck has " + Deck.Count + " Cards.");
         ShuffleDeck();
@@ -46,7 +51,8 @@ public class CardController : MonoBehaviour
 
     void Update()
     {
-       if (Hand.Count == 0)
+        //keep the hand topped up automatically if it ever empties out
+        if (Hand.Count == 0)
         {
             RefillHand();
         }
@@ -69,7 +75,7 @@ public class CardController : MonoBehaviour
     #region During gameplay deck manipulation
     private List<Card> BuildDeck()
     {
-
+        //copy the base deck so runtime changes don't affect the base loadout
         List<Card> Deck = new List<Card>(BaseDeck);
 
         return Deck;
@@ -98,6 +104,7 @@ public class CardController : MonoBehaviour
         }
     }
 
+    //recycle the discard pile back into the deck once the deck runs out
     private void ReshuffleDiscardIntoDeck()
     {
         Deck.AddRange(DiscardPile);
@@ -110,11 +117,13 @@ public class CardController : MonoBehaviour
     {
         for (int i = 0; i < amount; i++)
         {
+            //reshuffle discard pile into deck if the deck is empty
             if (Deck.Count == 0)
             {
                ReshuffleDiscardIntoDeck();
             }
 
+            //draw the top card into the hand and trigger its draw behavior
             Card card = Deck[0];
             Hand.Add(card);
             card.Played = false;
@@ -123,6 +132,8 @@ public class CardController : MonoBehaviour
             Deck.RemoveAt(0);
         }
     }
+
+    //move a card from hand to discard pile and trigger its discard behavior
     public void Discard(Card card)
     {
         card.Played = true;
@@ -132,7 +143,7 @@ public class CardController : MonoBehaviour
         Hand.Remove(card);
     }
 
-
+    //discard the entire hand, then draw back up to full
     public void DiscardHand()
     {
         

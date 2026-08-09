@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour
     #endregion
     private void Awake()
     {
+        //bind input actions from the input action asset
         moveAction = InputSystem.actions.FindAction("Move");
         lookAction = InputSystem.actions.FindAction("Look");
         jumpAction = InputSystem.actions.FindAction("Jump");
@@ -87,24 +88,16 @@ void Update()
         if (attackAction.WasPerformedThisFrame() && attackReady) 
         {
             StartCoroutine(Attack());
-            projectile.Spawn(5, ElementType.None);
+            projectile.Spawn(5, ElementType.None, 10);
             Debug.Log("Attack"); 
         }
+
         if (interactAction.WasPerformedThisFrame()) 
         {
             Debug.Log("Interact");
         }
-        if (sprinting)
-        {
-            flatVelocity.x = rb.linearVelocity.x;
-            flatVelocity.z = rb.linearVelocity.z;
-            flatVelocity.y = 0f;
-            if (flatVelocity.magnitude <= 0.1f)
-            {
-                Debug.Log("not sprinting");
-                sprinting = false;
-            }
-        }
+                
+        //toggle sprinting on input, only allowed to start while grounded
         if (sprintAction.WasPerformedThisFrame()) 
         { 
             
@@ -118,6 +111,19 @@ void Update()
                 }
             
         }
+        
+        if (sprinting)
+        {
+            flatVelocity.x = rb.linearVelocity.x;
+            flatVelocity.z = rb.linearVelocity.z;
+            flatVelocity.y = 0f;
+            //auto-cancel sprinting once the player has basically stopped moving
+            if (flatVelocity.magnitude <= 0.1f)
+            {
+                Debug.Log("not sprinting");
+                sprinting = false;
+            }
+        }
         if (jumpAction.WasPerformedThisFrame())
         {
             Jump();
@@ -126,7 +132,7 @@ void Update()
 
         if (DrawAction.WasPerformedThisFrame()) 
         {
-            controller.DiscardHand();
+            controller.Draw(1);
             
         }
 
@@ -175,7 +181,7 @@ void Update()
     }
     public void TakeDamage(int incomingDamage) 
     {
-               
+            //reduce incoming damage by armor before applying it to health
             incomingDamage -= armor;
             if (incomingDamage > 0)
             {
@@ -189,6 +195,7 @@ void Update()
     }
     private void Walking()
     {
+        //stop horizontal movement if no input and grounded
         if (moveAmt == Vector2.zero && IsGrounded())
         {
             Vector3 velocity = rb.linearVelocity;
@@ -205,12 +212,15 @@ void Update()
         rb.AddForce(moveDir.x * currentSpeed, 0, moveDir.z * currentSpeed);
         moveAmt = Vector2.zero;
 
+        //clamp horizontal speed to the max speed
         if (flatVelocity.magnitude > maxSpeed.magnitude) 
         {
             Vector3 clamped = flatVelocity.normalized * Maxspeed;
             rb.linearVelocity = new Vector3(clamped.x, rb.linearVelocity.y, clamped.z);
         }
     }
+
+    //rotate the player horizontally based on look input
     private void Rotating()
     {
             float rotationamount = lookAmt.x * rotateSpeed * Time.deltaTime;
@@ -228,7 +238,6 @@ void Update()
     }
     private bool IsGrounded()
     {
-
         return Physics.CheckSphere(new Vector3(transform.position.x, transform.position.y - 1, transform.position.z), .2f, ground);
     }
     #endregion

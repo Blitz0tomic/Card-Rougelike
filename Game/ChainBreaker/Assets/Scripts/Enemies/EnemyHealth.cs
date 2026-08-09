@@ -17,19 +17,30 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int damage, ElementType element)
     {
+        //take extra damage from ice attacks while already frozen
         if (element == ElementType.Ice && frozen)
+        {
             damage = Mathf.RoundToInt(damage * iceVulnerabilityMultiplier);
+        }
         health -= damage;
-        if (health <= 0) Die();
+        if (health <= 0) 
+        { 
+            Die(); 
+        }
     }
 
+    //apply the frozen debuff, which slows the enemy
     public IEnumerator ApplyFreeze(float duration)
     {
-        frozen = true;
-        agent.speed /= 2f;
-        yield return new WaitForSeconds(duration);
-        frozen = false;
-        agent.speed *= 2f;
+        if (!frozen)
+        {
+            frozen = true;
+            var tempSpeed = agent.speed;
+            agent.speed /= 2f;
+            yield return new WaitForSeconds(duration);
+            frozen = false;
+            agent.speed = tempSpeed;
+        }
     }
 
     private void Die()
