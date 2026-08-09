@@ -5,7 +5,6 @@ using static CardLibrary;
 
 public static class CardFactory
 {
-    // a dictionary that maps card ids to functions that create new instances of the corresponding card
     private static Dictionary<string, Func<Card>> cards =
         new Dictionary<string, Func<Card>>()
         {

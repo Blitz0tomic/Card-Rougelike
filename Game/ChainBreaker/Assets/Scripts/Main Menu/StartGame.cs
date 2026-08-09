@@ -12,7 +12,7 @@ public class StartGame : MonoBehaviour
         QuitButton.SetActive(false);
 
         int i = 0;
-
+        //create a button for each starting deck
         foreach (var deck in CardLibrary.Starting_Decks)
         {
             GameObject clone = Instantiate(BlankButton, canvas.transform, false);
