@@ -117,7 +117,6 @@ public class CardController : MonoBehaviour
     {
         for (int i = 0; i < amount; i++)
         {
-            //reshuffle discard pile into deck if the deck is empty
             if (Deck.Count == 0)
             {
                ReshuffleDiscardIntoDeck();
