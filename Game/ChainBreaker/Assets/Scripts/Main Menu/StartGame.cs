@@ -11,8 +11,6 @@ public class StartGame : MonoBehaviour
     {
         QuitButton.SetActive(false);
 
-
-
         int i = 0;
 
         foreach (var deck in CardLibrary.Starting_Decks)

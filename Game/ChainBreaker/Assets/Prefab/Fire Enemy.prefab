@@ -141,7 +141,6 @@ GameObject:
   - component: {fileID: 2951536868983883471}
   - component: {fileID: 8057146994748397538}
   - component: {fileID: 5358744466064131209}
-  - component: {fileID: 6848086139878931595}
   m_Layer: 0
   m_Name: Fire Enemy
   m_TagString: Enemy
@@ -257,10 +256,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d1c703dae0a6d43b6047fecf7a3faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ai: {fileID: 0}
   health: 40
   frozen: 0
   iceVulnerabilityMultiplier: 1.5
+  agent: {fileID: 0}
 --- !u!54 &8057146994748397538
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -310,28 +309,3 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &6848086139878931595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8360366163495781922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30b4e209200e5bf4f9670bc54cf1d3b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AI
-  agent: {fileID: 0}
-  chasing: 0
-  player: {fileID: 0}
-  attackDistance: 2.5
-  DistanceToPlayer: 0
-  attackReady: 1
-  attackBox: {fileID: 291350159050373865}
-  spawner: {fileID: 0}
-  projectileDamage: 0
-  Lightning: 0
-  Ice: 0
-  Fire: 1
-  NoElement: 0

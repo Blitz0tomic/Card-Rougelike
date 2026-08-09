@@ -5,6 +5,7 @@ using static CardLibrary;
 
 public static class CardFactory
 {
+    // a dictionary that maps card ids to functions that create new instances of the corresponding card
     private static Dictionary<string, Func<Card>> cards =
         new Dictionary<string, Func<Card>>()
         {
@@ -19,6 +20,7 @@ public static class CardFactory
 
     public static Card Create(string id)
     {
+        //return a new instance of the card with the given id
         return cards[id]();
     }
 }

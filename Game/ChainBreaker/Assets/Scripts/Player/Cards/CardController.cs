@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 using static CardLibrary;
-using static TransferSelectedDeck;
-
 public class CardController : MonoBehaviour
 {
     #region Variable Declaration

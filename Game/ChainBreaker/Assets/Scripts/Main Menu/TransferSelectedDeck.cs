@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class TransferSelectedDeck : MonoBehaviour
 {
-
-
     public void TransferDeck(string SceneName)
     {
 

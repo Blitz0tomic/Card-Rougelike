@@ -6,7 +6,7 @@ public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemy;
    
-    bool spawnable = false;
+    bool spawnReady = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,23 +19,25 @@ public class EnemySpawner : MonoBehaviour
     void Update()
     {
         
-        if (spawnable)
+        if (spawnReady)
         {
-            StartCoroutine(Spawn());
+            //spawn an enemy if spawnReady is true
+            Spawn();
         }
     }
 
-    private IEnumerator Spawn()
+    private void Spawn()
     {
-        spawnable = false;
+        //spawn an enemy and set spawnReady to false, then wait
+        spawnReady = false;
         GameObject clone = Instantiate(enemy);
-        yield return new WaitForSecondsRealtime(10f);
-        spawnable = true;
+        StartCoroutine(Wait());
     }
 
     private IEnumerator Wait()
     {
+        //wait for 10 seconds before allowing an enemy to spawn
         yield return new WaitForSecondsRealtime(10f);
-        spawnable = true;
+        spawnReady = true;
     }
 }
