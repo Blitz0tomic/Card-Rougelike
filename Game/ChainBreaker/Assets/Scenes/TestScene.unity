@@ -806,7 +806,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileData
   Damage: 0
-  elementType: 3
+  elementType: 0
 --- !u!1 &798836515
 GameObject:
   m_ObjectHideFlags: 0
