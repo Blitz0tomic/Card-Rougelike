@@ -65,8 +65,13 @@ public static class CardLibrary
 
         public virtual void Crystalize()
         {
+                 
             cardController.BaseDeck.Remove(this);
+            cardController.Deck.Remove(this);
+            cardController.Hand.Remove(this);
+            cardController.DiscardPile.Remove(this);
             passiveEffects.Crystalized.Add(this);
+        
         }
 
         public IEnumerator AutoPlay()
