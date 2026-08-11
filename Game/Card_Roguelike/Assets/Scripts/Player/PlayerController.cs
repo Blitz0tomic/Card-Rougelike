@@ -181,13 +181,16 @@ void Update()
     }
     public void TakeDamage(int incomingDamage) 
     {
-            //reduce incoming damage by armor before applying it to health
-            incomingDamage -= armor;
-            if (incomingDamage > 0)
-            {
-                health -= (incomingDamage);
-            }
-        
+        Debug.Log("attacked for " + incomingDamage + " damage");
+        Debug.Log("armor is " + armor);
+        if (armor > 0)
+        {
+            armor = Mathf.Max(0, armor - incomingDamage);
+            Debug.Log("armor is now " + armor);
+            return; // fully absorbed, health untouched regardless of overflow
+        }
+        health -= incomingDamage;
+        Debug.Log("health is now " + health);
         if (health <= 0)
         {
             Die();

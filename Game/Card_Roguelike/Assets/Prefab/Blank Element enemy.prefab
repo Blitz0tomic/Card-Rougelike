@@ -131,10 +131,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d1c703dae0a6d43b6047fecf7a3faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ai: {fileID: 0}
   health: 40
   frozen: 0
   iceVulnerabilityMultiplier: 1.5
+  agent: {fileID: 0}
 --- !u!54 &777137360807773417
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -197,18 +197,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AI
   agent: {fileID: 0}
-  chasing: 0
   player: {fileID: 0}
   attackDistance: 2.5
   DistanceToPlayer: 0
   attackReady: 1
   attackBox: {fileID: 4883152174917171389}
-  spawner: {fileID: 0}
-  projectileDamage: 0
-  Lightning: 0
-  Ice: 0
-  Fire: 0
-  NoElement: 1
 --- !u!1 &4883152174917171389
 GameObject:
   m_ObjectHideFlags: 0
