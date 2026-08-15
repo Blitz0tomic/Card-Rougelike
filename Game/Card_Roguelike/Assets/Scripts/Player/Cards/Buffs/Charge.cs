@@ -15,7 +15,6 @@ public class Charge : Card
 
     public override void Crystalize()
     {
-        Debug.Log("Charge Crysalized");
         base.Crystalize();
     }
 

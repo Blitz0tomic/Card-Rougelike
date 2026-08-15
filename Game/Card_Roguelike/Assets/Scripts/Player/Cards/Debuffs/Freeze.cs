@@ -8,7 +8,6 @@ public class Freeze : Card
 
     public override void Crystalize()
     {
-        Debug.Log("Freeze Crysalized");
         base.Crystalize();
     }
 }

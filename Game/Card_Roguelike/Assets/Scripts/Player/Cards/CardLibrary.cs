@@ -65,7 +65,7 @@ public static class CardLibrary
 
         public virtual void Crystalize()
         {
-                 
+            Debug.Log($"{Name} Crystallized");
             cardController.BaseDeck.Remove(this);
             cardController.Deck.Remove(this);
             cardController.Hand.Remove(this);
