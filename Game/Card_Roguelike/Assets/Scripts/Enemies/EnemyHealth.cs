@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public int health = 100;
+    public float health = 100;
     public bool frozen = false;
     public float iceVulnerabilityMultiplier = 1.5f;
 
@@ -15,7 +15,7 @@ public class EnemyHealth : MonoBehaviour
         agent = gameObject.GetComponent<NavMeshAgent>();
     }
 
-    public void TakeDamage(int damage, ElementType element)
+    public void TakeDamage(float damage, ElementType element)
     {
         //take extra damage from ice attacks while already frozen
         if (element == ElementType.Ice && frozen)

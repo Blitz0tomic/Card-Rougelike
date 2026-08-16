@@ -23,8 +23,8 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     public CardController controller;
-    public int health;
-    public int armor = 0;
+    public float health;
+    public float armor = 0;
 
         public bool sprinting = false;
 
@@ -88,7 +88,6 @@ void Update()
         if (attackAction.WasPerformedThisFrame() && attackReady) 
         {
             StartCoroutine(Attack());
-            projectile.Spawn(5, ElementType.None, 10);
             Debug.Log("Attack"); 
         }
 
@@ -179,7 +178,7 @@ void Update()
         yield return new WaitForSecondsRealtime(.15f);
         attackReady = true;
     }
-    public void TakeDamage(int incomingDamage) 
+    public void TakeDamage(float incomingDamage) 
     {
         Debug.Log("attacked for " + incomingDamage + " damage");
         Debug.Log("armor is " + armor);

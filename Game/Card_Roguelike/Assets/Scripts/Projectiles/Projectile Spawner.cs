@@ -7,7 +7,7 @@ public class ProjectileSpawner : MonoBehaviour
      public GameObject Projectile;
      public ProjectileData projectileData;
      private Rigidbody body = null;
-    public void Spawn(int Damage, ElementType elementType, float speed)
+    public void Spawn(float Damage, ElementType elementType, float speed)
     {
         //create projectile
         GameObject clone = Instantiate(Projectile);

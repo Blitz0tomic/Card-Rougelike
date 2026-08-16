@@ -10,7 +10,8 @@ public class LightningStrike : Card
     {
 
         base.OnPlay();
-
+        playerController.projectile.Spawn(15f * playerController.lightningAttackMultiplier, Element, 50f);
+        playerController.lightningAttackMultiplier = playerController.baseLightningAttackMultiplier;
 
     }
 

@@ -15,6 +15,8 @@ public class Charge : Card
 
     public override void Crystalize()
     {
+        playerController.baseLightningAttackMultiplier *= 1.5f;
+        playerController.lightningAttackMultiplier = playerController.baseLightningAttackMultiplier;
         base.Crystalize();
     }
 

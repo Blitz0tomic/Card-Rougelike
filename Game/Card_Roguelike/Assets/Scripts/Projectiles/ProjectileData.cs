@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProjectileData : MonoBehaviour
 {
-    public int Damage;
+    public float Damage;
     public ElementType elementType;
 
     private void OnCollisionEnter(Collision collision)
