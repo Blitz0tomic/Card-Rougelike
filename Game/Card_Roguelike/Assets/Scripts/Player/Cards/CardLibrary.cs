@@ -105,7 +105,7 @@ public static class CardLibrary
     "Lightning Deck",
     new List<string>()
     { 
-        "charge",
+        "shield",
         "charge",
         "charge",
         "lightningstrike",

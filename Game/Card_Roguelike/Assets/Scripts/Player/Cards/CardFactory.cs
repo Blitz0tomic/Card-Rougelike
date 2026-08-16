@@ -14,7 +14,8 @@ public static class CardFactory
         {"lightningstrike", () => new LightningStrike() },
         {"chainlightning", () => new ChainLightning() },
         {"lightningbolt", () => new LightningBolt() },
-        {"blank", () => new Blank() }
+        {"blank", () => new Blank() },
+        {"shield", () => new Shield() }
         };
 
     public static Card Create(string id)

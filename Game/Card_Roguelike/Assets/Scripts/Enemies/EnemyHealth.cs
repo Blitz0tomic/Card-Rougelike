@@ -43,6 +43,18 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
+    //apply a damage over time Debuff
+    public IEnumerator ApplyBurn(float damagePerTick, float tickInterval, float duration)
+    {
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            yield return new WaitForSeconds(tickInterval);
+            TakeDamage(damagePerTick, ElementType.Fire);
+            elapsed += tickInterval;
+        }
+    }
+
     private void Die()
     {
         Destroy(gameObject);
