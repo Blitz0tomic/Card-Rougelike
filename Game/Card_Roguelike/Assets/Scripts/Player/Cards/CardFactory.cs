@@ -11,7 +11,7 @@ public static class CardFactory
         {"charge", () => new Charge() },
         {"freeze", () => new Freeze() },
         {"icebolt", () => new IceBolt() },
-        {"lightningstrike", () => new LightningStrike() },
+        {"lightningshot", () => new LightningShot() },
         {"chainlightning", () => new ChainLightning() },
         {"lightningbolt", () => new LightningBolt() },
         {"blank", () => new Blank() },

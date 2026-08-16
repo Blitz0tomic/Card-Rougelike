@@ -9,5 +9,6 @@ public class ChainLightning : Card
     public override void OnPlay()
     {
         base.OnPlay();
+        playerController.lightningAttackMultiplier = playerController.baseLightningAttackMultiplier;
     }
 }

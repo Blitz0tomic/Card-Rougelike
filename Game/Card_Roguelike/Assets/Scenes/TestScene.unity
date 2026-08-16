@@ -1118,7 +1118,7 @@ MonoBehaviour:
   inputActions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   controller: {fileID: 1594140721}
   health: 100
-  armor: 5
+  armor: 0
   sprinting: 0
   rb: {fileID: 1594140713}
   jumpForce: 5

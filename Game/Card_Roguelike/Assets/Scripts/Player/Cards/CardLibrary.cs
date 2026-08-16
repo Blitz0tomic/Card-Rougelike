@@ -108,9 +108,9 @@ public static class CardLibrary
         "shield",
         "charge",
         "charge",
-        "lightningstrike",
-        "lightningstrike",
-        "lightningstrike",
+        "lightningshot",
+        "lightningshot",
+        "lightningshot",
      }
    );
 
