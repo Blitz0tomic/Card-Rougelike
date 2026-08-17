@@ -1335,6 +1335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GizmoDrawing
   lightningbolt: 1
+  chainlightning: 1
 --- !u!1 &1657395052
 GameObject:
   m_ObjectHideFlags: 0

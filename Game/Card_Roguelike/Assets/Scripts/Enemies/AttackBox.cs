@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class AttackBox : MonoBehaviour
 {
-    public int damage = 10;
+    public int damage = 15;
     private bool hasHit = false;
 
 
