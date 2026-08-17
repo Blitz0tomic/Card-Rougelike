@@ -8,10 +8,9 @@ public class LightningShot : Card
 
     public override void OnPlay()
     {
-
-        base.OnPlay();
         playerController.projectile.Spawn(15f * playerController.lightningAttackMultiplier, Element, 50f);
         playerController.lightningAttackMultiplier = playerController.baseLightningAttackMultiplier;
+        base.OnPlay();
 
     }
 

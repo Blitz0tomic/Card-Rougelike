@@ -74,11 +74,13 @@ public class PlayerController : MonoBehaviour
         maxSpeed = new Vector3(Maxspeed, 0, Maxspeed);
         Cursor.lockState = CursorLockMode.Locked;
         lightningAttackMultiplier = baseLightningAttackMultiplier;
-    } 
-    
+    }
+
     
 
-void Update()
+
+
+    void Update()
     {
         
         moveAmt = moveAction.ReadValue<Vector2>();

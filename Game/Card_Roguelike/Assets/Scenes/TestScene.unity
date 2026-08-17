@@ -1096,6 +1096,7 @@ GameObject:
   - component: {fileID: 1594140721}
   - component: {fileID: 1594140722}
   - component: {fileID: 1594140723}
+  - component: {fileID: 1594140724}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1249,7 +1250,7 @@ Transform:
   m_GameObject: {fileID: 1594140711}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 1.31, y: 2.17, z: 31.46}
+  m_LocalPosition: {x: 1.31, y: 1.61, z: 31.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1321,6 +1322,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileSpawner
   Projectile: {fileID: 613743848}
   projectileData: {fileID: 0}
+--- !u!114 &1594140724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594140711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16e69f53d01e7064bb2314a7973f4334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GizmoDrawing
+  lightningbolt: 1
 --- !u!1 &1657395052
 GameObject:
   m_ObjectHideFlags: 0
