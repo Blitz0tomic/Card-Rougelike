@@ -214,8 +214,7 @@ public class PlayerController : MonoBehaviour
         float currentSpeed = sprinting ? walkSpeed * 1.5f : walkSpeed;
 
         rb.AddForce(moveDir.x * currentSpeed, 0, moveDir.z * currentSpeed);
-        //moveAmt = Vector2.zero;
-
+        
         //clamp horizontal speed to the max speed
         if (flatVelocity.magnitude > maxSpeed.magnitude) 
         {
