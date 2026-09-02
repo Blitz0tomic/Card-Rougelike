@@ -1126,9 +1126,9 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 8
-  walkSpeed: 10
+  walkSpeed: 12
   rotateSpeed: 50
-  Maxspeed: 10
+  Maxspeed: 12
   maxSpeed: {x: 0, y: 0, z: 0}
   attackBox: {fileID: 1585027623}
   baseLightningAttackMultiplier: 1
@@ -1334,7 +1334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16e69f53d01e7064bb2314a7973f4334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GizmoDrawing
-  lightningbolt: 1
+  lightningbolt: 0
   chainlightning: 0
 --- !u!1 &1657395052
 GameObject:

@@ -14,7 +14,7 @@ public static class CardLibrary
         public CardController cardController;
         public PlayerController playerController;
         public PassiveEffects passiveEffects;
-        public GizmoDrawing gizmo;
+        
         public string Name;
         public RarityType Rarity;
         public EffectType Type;
@@ -38,7 +38,7 @@ public static class CardLibrary
             cardController = GameObject.FindWithTag("Player").GetComponent<CardController>();
             playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
             passiveEffects = GameObject.FindWithTag("Player").GetComponent<PassiveEffects>();
-            gizmo = GameObject.FindWithTag("Player").GetComponent<GizmoDrawing>();
+            
         }
 
         public virtual void OnDraw()

@@ -10,7 +10,7 @@ public class LightningBolt : Card
 
     public override void OnPlay()
     {
-        gizmo.lightningbolt = true;
+        
         float damage = 25f * playerController.lightningAttackMultiplier;
         
         Vector3 pointInFront = playerController.transform.position + playerController.transform.forward * 15f;
@@ -25,7 +25,7 @@ public class LightningBolt : Card
         }
         playerController.lightningAttackMultiplier = playerController.baseLightningAttackMultiplier;
         base.OnPlay();
-        gizmo.lightningbolt = false;
+        
     }
     
 }
