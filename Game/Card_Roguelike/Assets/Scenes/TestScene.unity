@@ -978,6 +978,7 @@ GameObject:
   - component: {fileID: 1585027627}
   - component: {fileID: 1585027626}
   - component: {fileID: 1585027625}
+  - component: {fileID: 1585027628}
   m_Layer: 0
   m_Name: MeleeAbility
   m_TagString: Untagged
@@ -1078,6 +1079,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1585027623}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1585027628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585027623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf7db583feaccb418668558116bad9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeleeKnockback
+  knockbackForce: 10
+  disableDuration: 5
 --- !u!1 &1594140711
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,6 +1146,7 @@ MonoBehaviour:
   Maxspeed: 12
   maxSpeed: {x: 0, y: 0, z: 0}
   attackBox: {fileID: 1585027623}
+  SelectedCard: 0
   baseLightningAttackMultiplier: 1
   lightningAttackMultiplier: 0
   projectile: {fileID: 1594140723}

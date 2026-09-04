@@ -1,9 +1,8 @@
-Next Time: wire the melee ability to be a knockback, not just a blank box
+Next Time: UI for health, armor, and hand
 
 Soon
 	Ice Deck cards
 	Treasure Chests that grab random cards and add them to deck
-	UI for health, armor, and hand
 	different Ai's for the different Enemy elements
 
 farther out
@@ -11,12 +10,11 @@ farther out
 	3D models for the player, chests, Enemies
 
 Farthest out
-	Design actual levels so we can get our of TestScene
+	Design actual levels so TestScene is no longer needed
 
 
 
 Extra notes
 
-			the player character should be a vaguely Raccoon Humanoid with a big bag and smalled contatainers on a Bandoleer/Slugterra Chest strap thing
-			the Enemies are elemental spirits that are loose and angry
-
+			the player character should be a vaguely Raccoon Humanoid with a big bag and small containers on a Bandoleer/Slugterra Chest strap thing
+			the Enemies are elemental spirits that are loose 

@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
     public Vector3 maxSpeed;
     public GameObject attackBox;
 
-    //public int SelectedCard = 0;
+    public int SelectedCard = 0;
 
     bool attackReady = true;
 
@@ -137,28 +137,28 @@ public class PlayerController : MonoBehaviour
             
         }
 
-        //if (NextAction.WasPerformedThisFrame())
-        //{
-        //    SelectedCard += 1;
-        //    if (SelectedCard >= controller.Hand.Count)
-        //    {
-        //        SelectedCard = 0;
-        //    }
-        //}
+        if (NextAction.WasPerformedThisFrame())
+        {
+            SelectedCard += 1;
+            if (SelectedCard >= controller.Hand.Count)
+            {
+                SelectedCard = 0;
+            }
+        }
 
-        //if (PrevAction.WasPerformedThisFrame())
-        //{
-        //    SelectedCard -= 1;
-        //    if (SelectedCard < 0)
-        //    {
-        //        SelectedCard = controller.Hand.Count - 1;
-        //    }
-        //}
+        if (PrevAction.WasPerformedThisFrame())
+        {
+            SelectedCard -= 1;
+            if (SelectedCard < 0)
+            {
+                SelectedCard = controller.Hand.Count - 1;
+            }
+        }
 
-        //if (PlayCardAction.WasPerformedThisFrame() && controller.Hand.Count > 0)
-        //{
-        //    controller.Hand[SelectedCard].OnPlay();
-        //}
+        if (PlayCardAction.WasPerformedThisFrame() && controller.Hand.Count > 0)
+        {
+            controller.Hand[SelectedCard].OnPlay();
+        }
     }
     private void FixedUpdate()
     {
