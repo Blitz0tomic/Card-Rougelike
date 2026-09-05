@@ -129,6 +129,7 @@ public class CardController : MonoBehaviour
             card.OnDraw();
             StartCoroutine(card.AutoPlay());
             Deck.RemoveAt(0);
+            card.drawTime = Time.time;
         }
     }
 

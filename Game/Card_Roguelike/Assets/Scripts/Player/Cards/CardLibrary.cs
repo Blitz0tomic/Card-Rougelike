@@ -23,6 +23,7 @@ public static class CardLibrary
         public bool autoPlayed = false;
         public float autoplayTimer;
         public ElementType Element;
+        public float drawTime = 0f;
         public Card(string name, RarityType rarity, EffectType type, ElementType element, float AutoplayTimer,bool crystalizable)
         {
             Name = name;

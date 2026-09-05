@@ -4,6 +4,7 @@ Soon
 	Ice Deck cards
 	Treasure Chests that grab random cards and add them to deck
 	different Ai's for the different Enemy elements
+	make the player movement not stop on a dime, and increase the acceleration
 
 farther out
 	fire deck
