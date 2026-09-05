@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7864868678949232998}
   - component: {fileID: 5341334776421927473}
   - component: {fileID: 4032817572302812158}
+  - component: {fileID: 5857141581105730989}
   m_Layer: 0
   m_Name: Ice Enemy
   m_TagString: Enemy
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 1614025975003170008}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.6631966, y: 1.0000002, z: 57.34375}
+  m_LocalPosition: {x: 2, y: 1.0000002, z: 10.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -183,6 +184,23 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &5857141581105730989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614025975003170008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f028b29acbf289441b2ef68f5c61a425, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IceEnemyAI
+  agent: {fileID: 0}
+  player: {fileID: 0}
+  attackDistance: 5
+  DistanceToPlayer: 0
+  attackReady: 1
 --- !u!1 &2876392272702498952
 GameObject:
   m_ObjectHideFlags: 0

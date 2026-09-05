@@ -1,9 +1,13 @@
-Next Time: UI for health, armor, and hand
+Next Time: Different Ai's for the different Enemy elements
+				[ ] Fire
+				[ ] Water
+				[ ] Earth
 
 Soon
 	Ice Deck cards
 	Treasure Chests that grab random cards and add them to deck
-	different Ai's for the different Enemy elements
+	
+	UI for health, armor, and hand
 	make the player movement not stop on a dime, and increase the acceleration
 
 farther out

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6535362013702149920}
   - component: {fileID: 2132188909169870349}
   - component: {fileID: 4042446548818941286}
+  - component: {fileID: 735489984473404204}
   m_Layer: 0
   m_Name: Lightning Enemy
   m_TagString: Enemy
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 451009498548541389}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 10.83}
+  m_LocalPosition: {x: 2, y: 1, z: 10.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -183,6 +184,23 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &735489984473404204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451009498548541389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c928ff05e9e490448087604b79db194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LightningEnemyAI
+  agent: {fileID: 0}
+  player: {fileID: 0}
+  attackDistance: 5
+  DistanceToPlayer: 0
+  attackReady: 1
 --- !u!1 &1978890087722122094
 GameObject:
   m_ObjectHideFlags: 0

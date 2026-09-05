@@ -48,7 +48,8 @@ public class NoElementAI : MonoBehaviour
     }
     private IEnumerator AttackDelay()
     {
-        yield return new WaitForSecondsRealtime(1.5f);
+        new WaitForSecondsRealtime(1.5f);
         attackReady = true;
+        return null;
     }
 }
