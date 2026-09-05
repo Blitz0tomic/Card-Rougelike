@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -17,15 +18,25 @@ public class IceEnemyAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindWithTag("Player");
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private IEnumerator Attack()
+    {
+        attackReady = false;
+
+
+        StartCoroutine(AttackDelay());
+        return null;
+    }
+    private IEnumerator AttackDelay()
+    {
+        yield return new WaitForSecondsRealtime(1.5f);
+        attackReady = true;
     }
 }

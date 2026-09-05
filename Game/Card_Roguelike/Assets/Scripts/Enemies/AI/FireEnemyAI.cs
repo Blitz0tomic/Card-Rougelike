@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class LightningEnemyAI : MonoBehaviour
+public class FireEnemyAI : MonoBehaviour
 {
     public NavMeshAgent agent;
 
@@ -19,10 +19,10 @@ public class LightningEnemyAI : MonoBehaviour
         player = GameObject.FindWithTag("Player");
     }
    
+
     // Update is called once per frame
     void Update()
     {
-        DistanceToPlayer = Vector3.Distance(agent.gameObject.transform.position, player.transform.position);
         
     }
 
@@ -36,8 +36,7 @@ public class LightningEnemyAI : MonoBehaviour
     }
     private IEnumerator AttackDelay()
     {
-        new WaitForSecondsRealtime(1.5f);
+        yield return new WaitForSecondsRealtime(1.5f);
         attackReady = true;
-        return null;
     }
 }
