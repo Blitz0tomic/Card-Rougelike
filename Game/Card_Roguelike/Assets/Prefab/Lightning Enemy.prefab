@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2132188909169870349}
   - component: {fileID: 4042446548818941286}
   - component: {fileID: 735489984473404204}
+  - component: {fileID: 2292948986441055341}
   m_Layer: 0
   m_Name: Lightning Enemy
   m_TagString: Enemy
@@ -32,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 451009498548541389}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 1, z: 10.83}
+  m_LocalPosition: {x: -4, y: 1, z: 10.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -201,6 +202,22 @@ MonoBehaviour:
   attackDistance: 5
   DistanceToPlayer: 0
   attackReady: 1
+  projectile: {fileID: 0}
+  bulletSpeed: 50
+--- !u!114 &2292948986441055341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451009498548541389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c468e0e07348db045ab2da9c06aeebcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectileSpawner
+  Projectile: {fileID: 1978890087722122094}
+  projectileData: {fileID: 0}
 --- !u!1 &1978890087722122094
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,7 +231,7 @@ GameObject:
   - component: {fileID: 652971881639422241}
   - component: {fileID: 5866169340178344237}
   - component: {fileID: 7725412068261363310}
-  - component: {fileID: 7744315618351546490}
+  - component: {fileID: 1758360511298048071}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -344,7 +361,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7744315618351546490
+--- !u!114 &1758360511298048071
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -353,8 +370,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1978890087722122094}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c468e0e07348db045ab2da9c06aeebcd, type: 3}
+  m_Script: {fileID: 11500000, guid: f41baaf339b2b5e41802fec4e45da10b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ProjectileSpawner
-  Projectile: {fileID: 1978890087722122094}
-  projectileData: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectileData
+  Damage: 0
+  elementType: 0

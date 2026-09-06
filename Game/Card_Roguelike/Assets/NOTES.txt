@@ -1,7 +1,7 @@
 Next Time: Different Ai's for the different Enemy elements
 				[ ] Fire
 				[ ] Ice
-				[ ] Lightning
+				[X] Lightning
 
 Soon
 	Ice Deck cards
