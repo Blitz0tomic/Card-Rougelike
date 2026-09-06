@@ -20,7 +20,7 @@ public class LightningEnemyAI : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         projectile = GetComponent<ProjectileSpawner>();
         agent.speed = 7;
-        agent.autoBraking = false;
+        agent.autoBraking = true;
     }
    
     // Update is called once per frame
@@ -51,7 +51,7 @@ public class LightningEnemyAI : MonoBehaviour
         projectile.Spawn(10, ElementType.Lightning, bulletSpeed);
 
         StartCoroutine(AttackDelay());
-        return null;
+        yield break;
     }
     private IEnumerator AttackDelay()
     {
