@@ -13,6 +13,8 @@ public class LightningEnemyAI : MonoBehaviour
 
     public ProjectileSpawner projectile;
     public float bulletSpeed = 50f;
+    public enum AIMode { Attack, Normal }
+    public AIMode mode = AIMode.Attack;
 
     void Awake()
     {
@@ -22,15 +24,18 @@ public class LightningEnemyAI : MonoBehaviour
         agent.speed = 7;
         agent.autoBraking = true;
     }
-   
+
     // Update is called once per frame
     void Update()
     {
         DistanceToPlayer = Vector3.Distance(agent.gameObject.transform.position, player.transform.position);
         Vector3 directionFromPlayer = (agent.transform.position - player.transform.position).normalized;
         Vector3 standoffPoint = player.transform.position + directionFromPlayer * attackDistance;
-        agent.destination = standoffPoint;
-
+        if (attackMode)
+        {
+            agent.destination = standoffPoint;
+        
+        #region Attack Mode
         //stop and attack if within range and not on cooldown
         if (DistanceToPlayer < attackDistance && attackReady)
         {
@@ -42,7 +47,11 @@ public class LightningEnemyAI : MonoBehaviour
         {
             agent.isStopped = false;
         }
+        #endregion
+        }
+        #region Normal Mode
 
+        #endregion
     }
 
     private IEnumerator Attack()
@@ -58,4 +67,24 @@ public class LightningEnemyAI : MonoBehaviour
         yield return new WaitForSecondsRealtime(1.5f);
         attackReady = true;
     }
+
+    void ChangeMode(AIMode targetMode)
+    {
+        switch (targetMode)
+        {
+            case AIMode.Attack:
+                mode = targetMode;
+                break;
+            case AIMode.Normal:
+                mode = targetMode;
+                break;
+            default:
+                
+                break;
+        }
+    }
+
+
+
 }
+
