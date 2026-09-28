@@ -13,7 +13,6 @@ public class LightningEnemyAI : MonoBehaviour
 
     public ProjectileSpawner projectile;
     public float bulletSpeed = 50f;
-    public enum AIMode { Attack, Normal }
     public AIMode mode = AIMode.Attack;
 
     void Awake()
@@ -31,26 +30,30 @@ public class LightningEnemyAI : MonoBehaviour
         DistanceToPlayer = Vector3.Distance(agent.gameObject.transform.position, player.transform.position);
         Vector3 directionFromPlayer = (agent.transform.position - player.transform.position).normalized;
         Vector3 standoffPoint = player.transform.position + directionFromPlayer * attackDistance;
-        if (attackMode)
-        {
-            agent.destination = standoffPoint;
-        
         #region Attack Mode
+        if (mode == AIMode.Attack)
+        {
+            
+            agent.destination = standoffPoint;
         //stop and attack if within range and not on cooldown
         if (DistanceToPlayer < attackDistance && attackReady)
-        {
-            agent.isStopped = true;
-            agent.gameObject.transform.LookAt(player.gameObject.transform);
-            StartCoroutine(Attack());
-        }
-        if (DistanceToPlayer > attackDistance)
-        {
-            agent.isStopped = false;
+            {
+                agent.isStopped = true;
+                agent.gameObject.transform.LookAt(player.gameObject.transform);
+                StartCoroutine(Attack());
+            }
+            if (DistanceToPlayer > attackDistance)
+            {
+                agent.isStopped = false;
+            }
+            
         }
         #endregion
-        }
         #region Normal Mode
-
+        if (mode == AIMode.Normal)
+        {
+            
+        }
         #endregion
     }
 
@@ -70,21 +73,7 @@ public class LightningEnemyAI : MonoBehaviour
 
     void ChangeMode(AIMode targetMode)
     {
-        switch (targetMode)
-        {
-            case AIMode.Attack:
-                mode = targetMode;
-                break;
-            case AIMode.Normal:
-                mode = targetMode;
-                break;
-            default:
-                
-                break;
-        }
+        mode = targetMode;
     }
-
-
-
 }
 
