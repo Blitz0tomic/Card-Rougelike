@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 2951536868983883471}
   - component: {fileID: 8057146994748397538}
   - component: {fileID: 5358744466064131209}
+  - component: {fileID: 3241208696775009723}
   m_Layer: 0
   m_Name: Fire Enemy
   m_TagString: Enemy
@@ -157,7 +158,7 @@ Transform:
   m_GameObject: {fileID: 8360366163495781922}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 10.83}
+  m_LocalPosition: {x: 2, y: 1, z: 10.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -309,3 +310,20 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &3241208696775009723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8360366163495781922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a283d0a13eca5a489e72a9867d2fb05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireEnemyAI
+  agent: {fileID: 0}
+  player: {fileID: 0}
+  attackDistance: 5
+  DistanceToPlayer: 0
+  attackReady: 1

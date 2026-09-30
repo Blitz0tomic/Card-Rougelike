@@ -7,6 +7,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject enemy;
    
     bool spawnReady = false;
+    public float delay = 10;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,7 +38,7 @@ public class EnemySpawner : MonoBehaviour
     private IEnumerator Wait()
     {
         //wait for 10 seconds before allowing an enemy to spawn
-        yield return new WaitForSecondsRealtime(10f);
+        yield return new WaitForSecondsRealtime(delay);
         spawnReady = true;
     }
 }

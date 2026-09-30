@@ -22,3 +22,9 @@ public enum ElementType
     Ice,
     Fire,
 }
+
+public enum AIMode 
+{ 
+    Attack, 
+    Normal 
+}

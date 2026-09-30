@@ -17,6 +17,7 @@ public class NoElementAI : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindWithTag("Player");
+        agent.speed = 3.5f;
     }
     // Update is called once per frame
     void Update()
