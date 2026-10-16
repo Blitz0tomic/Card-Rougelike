@@ -5,21 +5,20 @@ Next Time: Different Ai's for the different Enemy elements
 
 Soon
 	Ice Deck cards
-	Treasure Chests that grab random cards and add them to deck
+	Treasure Chests that grab random cards and add them to deck.
 	
 	UI for health, armor, and hand
 	make the player movement not stop on a dime, and increase the acceleration
 
 farther out
 	fire deck
-	3D models for the player, chests, Enemies
+	3D models for the player, chests, and Enemies
 
 Farthest out
-	Design actual levels so TestScene is no longer needed
-
+	Design actual levels so the TestScene is no longer needed
 
 
 Extra notes
 
-			the player character should be a vaguely Raccoon Humanoid with a big bag and small containers on a Bandoleer/Slugterra Chest strap thing
-			the Enemies are elemental spirits that are loose 
+			The player character should be a vaguely Raccoon Humanoid with a big crossbody messenger/style bag and small containers on a Bandoleer/Slugterra Chest strap thing, and wearing a cloak/cape that changes color based on the Chosen element at the beginning
+			the Enemies are elemental spirits that are loose and running around 
