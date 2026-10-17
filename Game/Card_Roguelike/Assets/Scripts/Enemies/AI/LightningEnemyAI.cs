@@ -1,4 +1,6 @@
+
 using System.Collections;
+
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,13 +9,15 @@ public class LightningEnemyAI : MonoBehaviour
     public NavMeshAgent agent;
 
     public GameObject player;
-    public float attackDistance = 100f;
+    public float attackDistance = 15f;
     public float DistanceToPlayer;
     public bool attackReady = true;
 
     public ProjectileSpawner projectile;
     public float bulletSpeed = 50f;
     public AIMode mode = AIMode.Attack;
+
+    public int timesAttacked = 0;
 
     void Awake()
     {
@@ -29,7 +33,7 @@ public class LightningEnemyAI : MonoBehaviour
     {
         DistanceToPlayer = Vector3.Distance(agent.gameObject.transform.position, player.transform.position);
         Vector3 directionFromPlayer = (agent.transform.position - player.transform.position).normalized;
-        Vector3 standoffPoint = player.transform.position + directionFromPlayer * attackDistance;
+        Vector3 standoffPoint = player.transform.position + directionFromPlayer * (attackDistance - 3);
         #region Attack Mode
         if (mode == AIMode.Attack)
         {
@@ -46,23 +50,27 @@ public class LightningEnemyAI : MonoBehaviour
             {
                 agent.isStopped = false;
             }
-            
         }
         #endregion
         #region Normal Mode
+
         if (mode == AIMode.Normal)
         {
-            
+            ChangeMode(AIMode.Attack);
         }
         #endregion
     }
 
     private IEnumerator Attack()
     {
+        timesAttacked++;
         attackReady = false;
         projectile.Spawn(10, ElementType.Lightning, bulletSpeed);
-
         StartCoroutine(AttackDelay());
+        if(timesAttacked == 3)
+        { 
+            ChangeMode(AIMode.Normal); 
+        }
         yield break;
     }
     private IEnumerator AttackDelay()
@@ -73,7 +81,14 @@ public class LightningEnemyAI : MonoBehaviour
 
     void ChangeMode(AIMode targetMode)
     {
+        if (targetMode == AIMode.Normal) 
+        {
+            agent.isStopped = false;
+        }
+        if (targetMode == AIMode.Attack) 
+        { 
+            timesAttacked = 0; 
+        }
         mode = targetMode;
     }
 }
-

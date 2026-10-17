@@ -199,11 +199,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LightningEnemyAI
   agent: {fileID: 0}
   player: {fileID: 0}
-  attackDistance: 5
+  attackDistance: 15
   DistanceToPlayer: 0
   attackReady: 1
   projectile: {fileID: 0}
   bulletSpeed: 50
+  mode: 0
+  timesAttacked: 0
 --- !u!114 &2292948986441055341
 MonoBehaviour:
   m_ObjectHideFlags: 0
