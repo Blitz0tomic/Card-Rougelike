@@ -17,9 +17,8 @@ public class LightningEnemyAI : MonoBehaviour
     public AIMode mode = AIMode.Attack;
     public int timesAttacked = 0;
     public Vector3 randomLocation;
-    private float normalModeStartTime;
     public float normalTime = 5f;
-    public bool graceOver = false;
+    public bool graceTime = true;
 
     void Awake()
     {
@@ -32,6 +31,7 @@ public class LightningEnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!agent.enabled) return;
         distanceToPlayer = Vector3.Distance(agent.gameObject.transform.position, player.transform.position);
         randomLocationRadius = distanceToPlayer;
         Vector3 directionFromPlayer = (agent.transform.position - player.transform.position).normalized;
@@ -56,12 +56,12 @@ public class LightningEnemyAI : MonoBehaviour
         #region Normal Mode
         if (mode == AIMode.Normal)
         {
-            graceOver = Time.time - normalModeStartTime >= normalTime;
+            
             if (agent.remainingDistance <= 1f && !agent.pathPending)
             {
                 GenerateRandomLocation();
             }
-            if (distanceToPlayer <= attackDistance + 10 && graceOver) 
+            if (distanceToPlayer <= attackDistance + 10 && !graceTime) 
             {
                 ChangeMode(AIMode.Attack); 
             }
@@ -90,9 +90,9 @@ public class LightningEnemyAI : MonoBehaviour
         if (targetMode == AIMode.Normal) 
         {
             agent.isStopped = false;
-            graceOver = false;
+            graceTime = true;
             GenerateRandomLocation();
-            normalModeStartTime = Time.time;
+            StartCoroutine(NormalModeTimer(normalTime));
 }
         if (targetMode == AIMode.Attack) 
         { 
@@ -110,5 +110,9 @@ public class LightningEnemyAI : MonoBehaviour
             agent.destination = hit.position;
         }   
     }
-    
+    private IEnumerator NormalModeTimer(float delay)
+    {
+        yield return new WaitForSecondsRealtime(delay);
+        graceTime = false;
+    }
 }
