@@ -1,14 +1,13 @@
-Next Time: Different Ai's for the different Enemy elements
-				[ ] Fire
-				[ ] Ice
-				[ ] Lightning
-
 Soon
 	Ice Deck cards
 	Treasure Chests that grab random cards and add them to deck.
 	
 	UI for health, armor, and hand
 	make the player movement not stop on a dime, and increase the acceleration
+	Different Ai's for the different Enemy elements
+				[ ] Fire
+				[ ] Ice
+				[X] Lightning
 
 farther out
 	fire deck
