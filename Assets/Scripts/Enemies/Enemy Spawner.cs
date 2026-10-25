@@ -34,7 +34,6 @@ public class EnemySpawner : MonoBehaviour
         GameObject clone = Instantiate(enemy);
         StartCoroutine(Wait());
     }
-
     private IEnumerator Wait()
     {
         //wait for 10 seconds before allowing an enemy to spawn
