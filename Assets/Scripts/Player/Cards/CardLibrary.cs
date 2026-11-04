@@ -114,7 +114,6 @@ public static class CardLibrary
         "lightningshot",
         "lightningshot",
         "lightningshot",
-        "lightningbolt"
      }
    );
 
@@ -123,7 +122,7 @@ public static LoadoutDeck IceDeck = new LoadoutDeck(
         "Ice Deck",
         new List<string>()
         {
-            "freeze",
+            "shield",
             "freeze",
             "freeze",
             "icebolt",
@@ -136,7 +135,12 @@ public static LoadoutDeck FireDeck = new LoadoutDeck(
     "Fire Deck",
     new List<string>()
     {
-
+        "shield",
+        "Burn",
+        "Burn",
+        "firebolt",
+        "firebolt",
+        "firebolt",
     });
 public static List<LoadoutDeck> Starting_Decks = new List<LoadoutDeck>()
     {

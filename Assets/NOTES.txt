@@ -1,6 +1,7 @@
 Soon
-	Ice Deck cards
 	Treasure Chests that grab random cards and add them to deck.
+
+
 	
 	UI for health, armor, and hand
 	make the player movement not stop on a dime, and increase the acceleration
@@ -10,7 +11,8 @@ Soon
 				[X] Lightning
 
 farther out
-	fire deck
+	Ice Deck cards
+	Fire Deck
 	3D models for the player, chests, and Enemies
 
 Farthest out
