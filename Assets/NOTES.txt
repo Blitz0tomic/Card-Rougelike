@@ -1,5 +1,5 @@
 Soon
-	Treasure Chests that grab random cards and add them to deck.
+	Treasure Chests that grab random cards and add them to deck.(replaced by enemies dropping cards of the associated type)
 
 
 	

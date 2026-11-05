@@ -58,6 +58,11 @@ public class EnemyHealth : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
+        DropCards()
+    }
 
+    private void DropCards(ElementType element)
+    {
+        
     }
 }
