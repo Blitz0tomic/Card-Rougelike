@@ -58,11 +58,29 @@ public class EnemyHealth : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
-        DropCards()
+        DropCards();
     }
 
-    private void DropCards(ElementType element)
+    private void DropCards()
     {
+        ElementType element = GetComponent<NoElementAI>();
+        if (element == null)
+        {
+            element = GetComponent<FireEnemyAI>();
+        }
         
+        if (element == null)
+        {
+            element = GetComponent<IceEnemyAI>();
+        }
+       
+        if (element == null)
+        {
+            element = GetComponent<LightningEnemyAI>();
+        }
+
+        
+
+
     }
 }
