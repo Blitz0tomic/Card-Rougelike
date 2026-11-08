@@ -261,6 +261,7 @@ MonoBehaviour:
   frozen: 0
   iceVulnerabilityMultiplier: 1.5
   agent: {fileID: 0}
+  element: 3
 --- !u!54 &8057146994748397538
 Rigidbody:
   m_ObjectHideFlags: 0

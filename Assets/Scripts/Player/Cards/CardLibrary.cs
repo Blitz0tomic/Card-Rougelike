@@ -149,7 +149,7 @@ public static List<LoadoutDeck> Starting_Decks = new List<LoadoutDeck>()
     FireDeck,
     };
     #endregion
-}
+
 
 #region Drops
 public static Dictionary<ElementType, List<string>> DropPools = new Dictionary<ElementType, List<string>>()
@@ -159,5 +159,6 @@ public static Dictionary<ElementType, List<string>> DropPools = new Dictionary<E
     { ElementType.Fire,      new List<string>() { /* fire card ids */ } },
 };
 #endregion
+}
 
 

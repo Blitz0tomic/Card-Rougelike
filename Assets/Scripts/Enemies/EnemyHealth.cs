@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,7 +12,7 @@ public class EnemyHealth : MonoBehaviour
     public NavMeshAgent agent;
 
 
-    public ElementType = element;
+    public ElementType element;
 
     public void Start()
     {
@@ -66,7 +67,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void DropCards()
     {
-            if (element == None){return;}
+            if (element == ElementType.None){return;}
 
             List<string> pool = CardLibrary.DropPools[element];
             string id = pool[Random.Range(0, pool.Count)];

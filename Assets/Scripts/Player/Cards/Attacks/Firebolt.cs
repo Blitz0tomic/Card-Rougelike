@@ -2,9 +2,9 @@ using UnityEngine;
 using static CardLibrary;
 
 //ranged attack
-public class LightningShot : Card
+public class FireBolt : Card
 {
-    public LightningShot() : base("Lightning Shot", RarityType.Common, EffectType.Damage, ElementType.Lightning, 2.5f, false) { }
+    public FireBolt() : base("Fire Bolt", RarityType.Common, EffectType.Damage, ElementType.Fire, 3f, false) { }
 
     public override void OnPlay()
     {
