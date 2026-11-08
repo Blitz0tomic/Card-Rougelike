@@ -8,16 +8,16 @@ public static class CardFactory
     private static Dictionary<string, Func<Card>> cards =
         new Dictionary<string, Func<Card>>()
         {
+        {"shield", () => new Shield() },
         {"charge", () => new Charge() },
-        {"freeze", () => new Freeze() },
-        {"icebolt", () => new IceBolt() },
         {"lightningshot", () => new LightningShot() },
         {"chainlightning", () => new ChainLightning() },
         {"lightningbolt", () => new LightningBolt() },
-        {"blank", () => new Blank() },
-        {"shield", () => new Shield() },
+        {"freeze", () => new Freeze() },
+        {"icebolt", () => new IceBolt() },
         {"burn", () => new Burn() },
-        {"firebolt", () => new FireBolt() }
+        {"firebolt", () => new FireBolt() },
+        {"blank", () => new Blank() }
         };
 
     public static Card Create(string id)

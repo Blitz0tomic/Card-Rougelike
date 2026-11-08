@@ -10,15 +10,18 @@ public class EnemyHealth : MonoBehaviour
 
     public NavMeshAgent agent;
 
+
+    public ElementType = element;
+
     public void Start()
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
     }
 
-    public void TakeDamage(float damage, ElementType element)
+    public void TakeDamage(float damage, ElementType AttackElement)
     {
         //take extra damage from ice attacks while already frozen
-        if (element == ElementType.Ice && frozen)
+        if (AttackElement == ElementType.Ice && frozen)
         {
             damage = Mathf.RoundToInt(damage * iceVulnerabilityMultiplier);
         }
@@ -63,24 +66,9 @@ public class EnemyHealth : MonoBehaviour
 
     private void DropCards()
     {
-        ElementType element = GetComponent<NoElementAI>();
-        if (element == null)
-        {
-            element = GetComponent<FireEnemyAI>();
-        }
-        
-        if (element == null)
-        {
-            element = GetComponent<IceEnemyAI>();
-        }
-       
-        if (element == null)
-        {
-            element = GetComponent<LightningEnemyAI>();
-        }
+            if (element == None){return;}
 
-        
-
-
+            List<string> pool = CardLibrary.DropPools[element];
+            string id = pool[Random.Range(0, pool.Count)];
     }
 }
