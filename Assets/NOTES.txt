@@ -1,14 +1,15 @@
 Soon
-	Treasure Chests that grab random cards and add them to deck.(replaced by enemies dropping cards of the associated type)
+	[X]Treasure Chests that grab random cards and add them to deck.(replaced by enemies dropping cards of the associated type)
+		[] have the Die() method in Enemy Health instantiate a placeholder model for the card created on death
 
 
 	
 	UI for health, armor, and hand
 	make the player movement not stop on a dime, and increase the acceleration
 	Different Ai's for the different Enemy elements
-				[ ] Fire
-				[ ] Ice
-				[X] Lightning
+			[ ] Fire
+			[ ] Ice
+			[X] Lightning
 
 farther out
 	Ice Deck cards
