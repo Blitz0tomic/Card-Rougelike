@@ -71,5 +71,6 @@ public class EnemyHealth : MonoBehaviour
 
             List<string> pool = CardLibrary.DropPools[element];
             string id = pool[Random.Range(0, pool.Count)];
+            Debug.Log("dropped" + id);
     }
 }
