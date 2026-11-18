@@ -72,5 +72,6 @@ public class EnemyHealth : MonoBehaviour
             List<string> pool = CardLibrary.DropPools[element];
             string id = pool[Random.Range(0, pool.Count)];
             Debug.Log("dropped " + id);
+            //add instatiate logic here for a card prefab once one is made
     }
 }
