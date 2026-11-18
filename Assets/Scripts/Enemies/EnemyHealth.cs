@@ -68,7 +68,6 @@ public class EnemyHealth : MonoBehaviour
     private void DropCards()
     {
             if (element == ElementType.None){return;}
-
             List<string> pool = CardLibrary.DropPools[element];
             string id = pool[Random.Range(0, pool.Count)];
             Debug.Log("dropped " + id);

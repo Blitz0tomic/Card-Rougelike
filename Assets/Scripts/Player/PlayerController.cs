@@ -76,16 +76,11 @@ public class PlayerController : MonoBehaviour
         lightningAttackMultiplier = baseLightningAttackMultiplier;
     }
 
-    
-
-
-
     void Update()
     {
         
         moveAmt = moveAction.ReadValue<Vector2>();
-        lookAmt = lookAction.ReadValue<Vector2>();
-        
+        lookAmt = lookAction.ReadValue<Vector2>();        
         
         if (attackAction.WasPerformedThisFrame() && attackReady) 
         {
@@ -197,17 +192,19 @@ public class PlayerController : MonoBehaviour
             Die();
         }
     }
+
+
     private void Walking()
     {
         //stop horizontal movement if no input and grounded
-        if (moveAmt == Vector2.zero && IsGrounded())
-        {
-            Vector3 velocity = rb.linearVelocity;
-            velocity.x = 0;
-            velocity.z = 0;
-            rb.linearVelocity = velocity;
-            return;
-        }
+        // if (moveAmt == Vector2.zero && IsGrounded())
+        // {
+        //     Vector3 velocity = rb.linearVelocity;
+        //     velocity.x = 0;
+        //     velocity.z = 0;
+        //     rb.linearVelocity = velocity;
+        //     return;
+        // }
         Vector3 moveDir = new Vector3(moveAmt.x, 0, moveAmt.y);
         moveDir = transform.TransformDirection(moveDir.normalized);
 

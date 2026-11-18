@@ -1,6 +1,5 @@
 using UnityEngine;
 using static CardLibrary;
-
 //applies the Burn debuff to an enemy, causing it to take damage over time
 public class Burn: Card
 {

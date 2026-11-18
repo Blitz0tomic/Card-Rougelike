@@ -76,5 +76,3 @@ public static Dictionary<ElementType, List<string>> DropPools = new Dictionary<E
 };
 #endregion
 }
-
-
