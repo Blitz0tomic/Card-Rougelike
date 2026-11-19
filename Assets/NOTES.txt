@@ -1,7 +1,7 @@
 Game notes	
 	Soon
 		[X]Treasure Chests that grab random cards and add them to deck.(replaced by enemies dropping cards of the associated type)
-			[] have the Die() method in Enemy Health instantiate a placeholder model for the card created on death
+			[X] have the Die() method in Enemy Health instantiate a placeholder model for the card created on death
 
 
 		

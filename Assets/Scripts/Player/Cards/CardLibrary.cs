@@ -52,8 +52,8 @@ public static LoadoutDeck FireDeck = new LoadoutDeck(
     new List<string>()
     {
         "shield",
-        "Burn",
-        "Burn",
+        "burn",
+        "burn",
         "firebolt",
         "firebolt",
         "firebolt",

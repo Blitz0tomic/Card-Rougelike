@@ -16,6 +16,8 @@ public class EnemyHealth : MonoBehaviour
     public ElementType element;
 
     public GameObject cardPrefab;
+
+    private bool dead = false;
     public void Start()
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
@@ -63,6 +65,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
+        if (dead){return;}
         Destroy(gameObject);
         DropCards();
     }
