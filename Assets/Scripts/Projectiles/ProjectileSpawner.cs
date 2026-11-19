@@ -12,7 +12,6 @@ public class ProjectileSpawner : MonoBehaviour
         //create projectile
         GameObject clone = Instantiate(Projectile);
         clone.SetActive(true);
-        Debug.Log("Projectile Spawned");
         //make the clone the same position and rotation as the original projectile
         clone.transform.position = Projectile.transform.position;
         clone.transform.rotation = Projectile.transform.rotation;
