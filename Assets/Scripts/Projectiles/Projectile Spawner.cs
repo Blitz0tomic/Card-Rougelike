@@ -16,7 +16,7 @@ public class ProjectileSpawner : MonoBehaviour
         //make the clone the same position and rotation as the original projectile
         clone.transform.position = Projectile.transform.position;
         clone.transform.rotation = Projectile.transform.rotation;
-        clone.transform.SetParent(Projectile.transform.parent);
+        clone.transform.SetParent(null);
         //assign the correct data to the projectile
         projectileData = clone.GetComponent<ProjectileData>();
         projectileData.Damage = Damage;

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -14,6 +15,7 @@ public class EnemyHealth : MonoBehaviour
 
     public ElementType element;
 
+    public GameObject cardPrefab;
     public void Start()
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
@@ -71,6 +73,8 @@ public class EnemyHealth : MonoBehaviour
             List<string> pool = CardLibrary.DropPools[element];
             string id = pool[Random.Range(0, pool.Count)];
             Debug.Log("dropped " + id);
-            //add instatiate logic here for a card prefab once one is made
+        //add instatiate logic here for a card prefab once one is made
+        GameObject clone = Instantiate(cardPrefab, transform.position, cardPrefab.transform.rotation);
+        clone.GetComponentInChildren<TMP_Text>().text = CardFactory.Create(id).Name;
     }
 }

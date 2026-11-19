@@ -136,6 +136,7 @@ MonoBehaviour:
   iceVulnerabilityMultiplier: 1.5
   agent: {fileID: 0}
   element: 2
+  cardPrefab: {fileID: 8287394834228370556, guid: 1ce326775c548f34b861097039e93f27, type: 3}
 --- !u!54 &5341334776421927473
 Rigidbody:
   m_ObjectHideFlags: 0

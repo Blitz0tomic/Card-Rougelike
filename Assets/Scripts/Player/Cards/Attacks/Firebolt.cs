@@ -8,8 +8,8 @@ public class FireBolt : Card
 
     public override void OnPlay()
     {
-        playerController.projectile.Spawn(15f * playerController.lightningAttackMultiplier, Element, 50f);
-        playerController.lightningAttackMultiplier = playerController.baseLightningAttackMultiplier;
+        playerController.projectile.Spawn(15f, Element, 50f);
+        
         base.OnPlay();
 
     }

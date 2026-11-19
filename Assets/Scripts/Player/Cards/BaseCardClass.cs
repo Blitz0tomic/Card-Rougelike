@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+[Serializable]
 public class Card
 {
     #region base card class
-    [Serializable]
+    
         public CardController cardController;
         public PlayerController playerController;
         public PassiveEffects passiveEffects;
