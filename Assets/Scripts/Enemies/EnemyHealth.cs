@@ -12,12 +12,13 @@ public class EnemyHealth : MonoBehaviour
 
     public NavMeshAgent agent;
 
-
     public ElementType element;
 
     public GameObject cardPrefab;
 
+    public bool burning = false;    
     private bool dead = false;
+    
     public void Start()
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
@@ -37,7 +38,6 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    //apply the frozen debuff, which slows the enemy
     public IEnumerator ApplyFreeze(float duration)
     {
         if (!frozen)
@@ -51,15 +51,18 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    //apply a damage over time Debuff
+    
     public IEnumerator ApplyBurn(float damagePerTick, float tickInterval, float duration)
     {
-        float elapsed = 0f;
-        while (elapsed < duration)
-        {
-            yield return new WaitForSeconds(tickInterval);
-            TakeDamage(damagePerTick, ElementType.Fire);
-            elapsed += tickInterval;
+        if(!burning){
+            burning = true;
+            float elapsed = 0f;
+            while (elapsed < duration)
+            {
+                yield return new WaitForSeconds(tickInterval);
+                TakeDamage(damagePerTick, ElementType.Fire);
+                elapsed += tickInterval;
+            }
         }
     }
 
@@ -72,11 +75,10 @@ public class EnemyHealth : MonoBehaviour
 
     private void DropCards()
     {
-            if (element == ElementType.None){return;}
-            List<string> pool = CardLibrary.DropPools[element];
-            string id = pool[Random.Range(0, pool.Count)];
-            Debug.Log("dropped " + id);
-        //add instatiate logic here for a card prefab once one is made
+        if (element == ElementType.None){return;}
+        List<string> pool = CardLibrary.DropPools[element];
+        string id = pool[Random.Range(0, pool.Count)];
+        Debug.Log("dropped " + id);
         GameObject clone = Instantiate(cardPrefab, transform.position, cardPrefab.transform.rotation);
         clone.GetComponentInChildren<TMP_Text>().text = CardFactory.Create(id).Name;
     }

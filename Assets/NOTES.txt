@@ -1,24 +1,31 @@
 Game notes	
-	Soon
-		[X]Treasure Chests that grab random cards and add them to deck.(replaced by enemies dropping cards of the associated type)
-			[X] have the Die() method in Enemy Health instantiate a placeholder model for the card created on death
+	Linux Computer
+		Soon
+			Ice Deck starter cards
 
+			Fire Deck starter cards
 
-		
-		UI for health, armor, and hand
-		[X]make the player movement not stop on a dime, and increase the acceleration
-		Different Ai's for the different Enemy elements
-				[ ] Fire
-				[ ] Ice
-				[X] Lightning
+			other cards 
+		farther out
+			
+			models for the player, chests, and Enemies
 
-	farther out
-		Ice Deck cards
-		Fire Deck
-		3D models for the player, chests, and Enemies
+		Farthest out
+			
+	Windows Computer
+		Soon
+			UI for health, armor, and hand
 
-	Farthest out
-		Design actual levels so the TestScene is no longer needed
+			Different Ai's for the different Enemy elements
+					[ ] Fire
+					[ ] Ice
+					[X] Lightning
+		Farther out
+
+		Farthest out
+			Design actual levels
+	Either one
+		make Autoplay timers longer to encourage manual play
 
 
 Extra notes
