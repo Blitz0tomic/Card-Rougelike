@@ -17,6 +17,7 @@ public static class CardFactory
         {"lightningshot", () => new LightningShot() },
         {"chainlightning", () => new ChainLightning() },
         {"lightningbolt", () => new LightningBolt() },
+        {"lightningrush", () => new LightningRush()},
        #endregion
         #region ice
         {"freeze", () => new Freeze() },
